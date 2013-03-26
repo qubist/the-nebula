@@ -182,7 +182,7 @@
 						
 	:help {
 		:name "help"
-		:helptext "Description: used to display the help menu\nUsage: help"
+		:helptext "Description: used to display the help menu\nUsage: help OR help <command>"
 		:fn (fn [p _]
 			(let [command (find-command p)]
 			(cond
