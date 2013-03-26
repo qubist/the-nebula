@@ -1,0 +1,1 @@
+(ns wj.models.user)
