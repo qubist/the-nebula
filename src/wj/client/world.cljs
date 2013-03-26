@@ -32,8 +32,8 @@
 							:rinv {:lantern "a lantern"}}
 		:cellar_stairs {:des "You are at the top of a dank staircase that leads down.",
 							:con {:d :cellar, :e :starting_chamber}
-							:rinv {:brick "a brick"}}
-		:cellar {:des "You are in a damp, dimly lit cellar with shelves containing many different things.",
+							:rinv {:rotten_wood {:des "a chunk of rotten wood" :regex #"chunk of rotten wood|chunk of wood|rotten wood|wood"}}}
+		:cellar {:des "You are in a damp, dimly lit cellar. Empty shelves line the walls, all of them covered with a thick layer of dust.",
 							:con {:u :cellar_stairs}
 							:rinv {:match "a match", :coin_bag {:des "a small cloth bag of silver coins" :regex #"coin|coins|bag|silver"}}}
 		:yard {:des "You are in a yard lit by your lantern. To the South, there is a gate to the outside. To the North there is the house.",
