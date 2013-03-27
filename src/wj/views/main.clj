@@ -29,6 +29,11 @@
 			(cljs/include-scripts :with-jquery)
 ))
 
+(defpage "/contact" []
+         (common/layout
+			[:p "ISM"]
+))
+
 (defpage "/about" []
          (common/layout
 		   [:p [:b "About"]]
