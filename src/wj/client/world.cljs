@@ -312,9 +312,16 @@
 	)
 
 (defn search-any-inv [item-str inventory]
-	(let [inv-patterns (get-inventory-patterns inventory) 
-		  found-items (sort-by (fn [[_ s]] (- (count s)))  (map (fn [[item pattern]] [item (re-find pattern item-str)]) inv-patterns))
+	(let [inv-patterns (get-inventory-patterns inventory)
+		  matched-items (map (fn [[item pattern]] [item (re-find pattern item-str)]) inv-patterns)
+		  found-items (filter (fn [[_ match]] (not (nil? match))) matched-items)
+		  sorted-items (sort-by (fn [[_ s]] (- (count s)))  found-items)
 		  num-items (count found-items)]
+;	 (pntln (str "Patterns: " inv-patterns))
+;	 (pntln (str "item-str: " item-str))
+;	 (pntln (str "matched-items: " matched-items))
+;	 (pntln (str "found-items: " found-items))
+;	 (pntln (str "sorted-items" sorted-items))
 	 (cond (= num-items 1) (first (first found-items))
 		   (> num-items 1) (let [[first-item first-match] (first found-items)
 								 [second-item second-match] (second found-items)]
