@@ -21,6 +21,7 @@
 		(and (= location :crystal_room) (= con :overlook_ladder) (door-closed? :door_to_overlook_ladder)) "You can't go that way."
 		(and (= con :mineshaft_overlook_2) (= location :overlook_ladder)) (do (set-location :mineshaft_overlook_2) "As you start to climb the ladder, a swift wind shoots you up the tube and out into a cavern filled with mining instruments. You land on a metal platform.")
 		(and (= location :cath_stransc) (= con :cath_crypt_web) (door-closed? :door_to_cath_crypt_web)) "The trapdoor is locked."
+		(and (= con :flooded_room_1) (= location :mine_room_1)) (do (set-location :flooded_room_1) "You fall through the hole and into shallow water.")
 		true false))
 
 			
@@ -97,7 +98,9 @@
 											(zap-item-from-world :crystal_room :crystal)
 											(set-door-open :door_to_overlook_ladder "A doorway opens in the stone of the North wall of the room.")
 											(change-room-des :crystal_room "You find yourself in a large square room. A strange contraption stands in the center of the room. It has wires and tubes all running into the walls away from a glowing, crimson crystal about the size of your fist. Red light is being drawn from the crystal, through the wires and tubes, and into the walls. A hallway leads East, and there is a doorway to the North.")
-											(change-room-des :mineshaft_overlook "You are on a long viewing area looking over a massive cavern filled with a complex of chutes, minecart tracks, and metal catwalks. A few minecarts, piled with gold ore, zip along a track, powered by a red glow that seems to pull them along. Machines ar chugging, engines whirring and the far off sound of pickaxes can be heard. The viewing are continues to the East, and there is a tunnel to the South.")))
+											(change-room-des :mineshaft_overlook "You are on a long viewing area looking over a massive cavern filled with a complex of chutes, minecart tracks, and metal catwalks. A few minecarts, piled with gold ore, zip along a track, powered by a red glow that seems to pull them along. Machines are chugging, engines whirring and the far off sound of pickaxes can be heard. The viewing are continues to the East, and there is a tunnel to the South.")
+											(change-room-des :mineshaft_elevator "You are inside a unsteady, rusted elevator cage. Above you there is a system of pulleys and cables that suspend the elevator from the ceiling. There is no obvious way to control the elevator, except a tiny, red keyhole with the words \"In case of emergency\" enscribed below it. The kehole is glowing with red light. There is an exit to the West.")))
+
 					))))}
 					
 	:inv {
@@ -138,6 +141,8 @@
 					(do (pntln "The room shakes violently and the door slides open.")
 						(set-riddle-answered :pword_room))
 					(pntln "The room shakes slightly, but the door does not open."))
+				(and (= location :cath_crypt_main) (re-find #"romeo|juliet" (lower-case input)))
+					(pntln "Nice try.")
 				true (pntln "talking to one's self is a sign of impending mental collapse.")
 			))
 		}
@@ -147,7 +152,7 @@
 		:helptext "Description: used to read items\nUsage: read <item>"
 		:fn (fn [p _]
 			(let [have-journal (contains? inv :journal)]
-			  (cond (and (= p "journal") have-journal (not(= location :study))) (pntln "You open the journal to find that age has worn the already faint marks from the page. You can only make out some of the words and letters, the rest are smudged or faded beyond recognition.You read from the last entry:\n\"M y 12, 174 A. .E. \nI f ar that t ey h  e disc     d our    in  plac . T   Ojer n Gem  ald i  ot saf  here. My fa  e  asu es m  that t   ke  is h  den, an   e wil   e s  e. I am n t so   rtan. Tom r w  e  will relo  te the    eral  t  a s     po  ti  . It will b  v ry dan    us.\nI l  e  n fe r.\nTh y a e comi g.\"")
+			  (cond (and (= p "journal") have-journal (not(= location :study))) (pntln "You open the journal to find that age has worn the already faint marks from the page. You can only make out some of the words and letters; the rest are smudged or faded beyond recognition. You read from the last entry:\n\"M y 12, 174 A. .E. \nI f ar that t ey h  e disc     d our    in  plac . T   Ojer n Gem  ald i  ot saf  here. My fa  e  asu es m  that t   ke  is h  den, an   e wil   e s  e. I am n t so   rtan. Tom r w  e  will relo  te the    eral  t  a s     po  ti  . It will b  v ry dan    us.\nI l  e  n fe r.\nTh y a e comi g.\"")
 					(and (= p "journal") have-journal (= location :study)) (pntln "The journal emits a green glow from the pages and the letters are reformed by green glowing lines. The passage reads:\n\"May 12, 174 A.C.E. \nI fear that they have discovered our hiding place. The Ojeran Gemerald is not safe here. My father asures me that the key is hidden, and we will be safe. I am not so certan. Tomorow we will relocate the Gemerald to a safer position. It will be very dangerous.\nI live in fear.\nThey are coming.\"")
 					(and (contains? inv :hint_note) (re-find (get (get inv :hint_note) :regex) p)) (pntln "The paper says:\n\"To open the door, three stones are required.\nNot things of value, just ordinary rocks.\nThe door will open, revealing a key,\nTo help you go on in your adventures.\"")
 					(= p "") (pntln "What would you like to read?")
