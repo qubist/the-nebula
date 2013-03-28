@@ -10,7 +10,8 @@
 (defpage "/" []
          (common/layout
            [:p.last "Welcome to " [:b "The Nebula"]", Will Harris-Braun's website."]
-		   [:p [:a {:href "/qog/start"} "Quest On!"]]
+		   [:p.last "(It's not quite done yet. Don't tell anyone!)"]
+;		   [:p [:a {:href "/qog/start"} "Quest On!"]]
 ))
 
 (defpage "/qog/start" []
@@ -26,7 +27,9 @@
          (common/layout
 			[:p.last [:b "Quest for the Ojeran Gemerald"]]
 			[:p.last ""]
+			[:img#loading-img {:src "/art/loading.gif"}]
 			(cljs/include-scripts :with-jquery)
+			[:div#report-issue [:a {:href "/qog/issues"} "Report problems! Pretty please?"]]
 ))
 
 (defpage "/contact" []
@@ -89,18 +92,17 @@
          (common/layout
 		   [:p [:b "Hi,"]]
 		   [:p.last "Please report issues here! It really helps me make the game better and more enjoyable for everyone. It can be a pain, but really? Think of all the things I've done for " [:i "you!"]]
-			(if true [:p "Something was missing!"])
-		(form-to [:post "/qog/issues"]
+		   (form-to [:post "/qog/issues"]
 		
 		   (issue-fields issue)
 
 		   [:p (submit-button {} "Submit Issue")]
 		)
 ))
+
 (defn send-email []
-	true)
-(defn fields-valid []
-	false)
+	true ) ;FIXME
+	
 (defpage [:post "/qog/issues"] {:as issue}
  		(cond 
 			(valid? issue)
