@@ -5,7 +5,7 @@
             [wj.client.commands :as commands]
 
 )
-  (:use [jayq.core :only [$ append val delegate inner bind]]
+  (:use [jayq.core :only [$ append val delegate inner bind hide]]
         [wj.client.world :only [initialize-inventory initialize-world location world print-items-in-room]]
         [wj.client.prn :only [pnt pntln set-log]]
         )
@@ -56,5 +56,5 @@
 )
 
 (initialize)
+(hide ($ :#loading-img))
 (pntln (:des (location world)))
-
