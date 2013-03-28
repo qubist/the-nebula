@@ -14,6 +14,7 @@
 		(and (= location :d_room_1) (= con :crossroads) (door-closed? :door_to_crossroads)) "The door is locked."
 		(and (= location :clock_room) (= con :silver_key_room) (door-closed? :door_to_silver_key_room)) "The door is locked."
 		(and (= con :outside) (robj-contains? :yard :dog)) "The dog growls and blocks your path."
+		(and (= con :mird_hillb) (robj-contains? :mird :mird)) "The monkey-bird monster makes a strange monkey-squawk noise and blocks the way."
 		(and (= location :sphinx) (= con :l_en) (riddle-unanswered? :sphinx)) "The Sphinx says \"Answer the riddle, and then you may pass!\""
 		(and (= location :pword_room) (= con :white_pebble_room) (riddle-unanswered? :pword_room)) "The door is locked."
 		(and (= location :mine_room_1) (= con :lyre_room)) (do (set-location :mineshaft_bottom) (if (contains? inv :zegg) (do (invrm :zegg) "As you walk into the room, you get hit by something very heavy. When you wake up, you have a grape sized lump on the back of your head and you feel like you are missing something...") "As you walk into the room, you get hit by something very heavy. When you wake up, you have a grape sized lump on the back of your head."))
@@ -22,6 +23,7 @@
 		(and (= con :mineshaft_overlook_2) (= location :overlook_ladder)) (do (set-location :mineshaft_overlook_2) "As you start to climb the ladder, a swift wind shoots you up the tube and out into a cavern filled with mining instruments. You land on a metal platform.")
 		(and (= location :cath_stransc) (= con :cath_crypt_web) (door-closed? :door_to_cath_crypt_web)) "The trapdoor is locked."
 		(and (= con :flooded_room_1) (= location :mine_room_1)) (do (set-location :flooded_room_1) "You fall through the hole and into shallow water.")
+		(and (= con :mird_hillb) (= location :mird)) (do (set-location :mird_hillb) "You step out the massive doorway and immediately trip over a rock and tumble down the steep grassy slope.")
 		true false))
 
 			
@@ -71,11 +73,17 @@
 						  true (do
 									(pntln (str "You put down " (get-item-description item inv) "."))
 									(give-item-to-world location item)
-									(if (and (= location :yard ) (= item :meat))
+									(if (and (= location :yard ) (= item :meat) (robj-contains? :yard :dog))
 										(do
 											(pntln "The dog gobbles up the meat and runs off into the bushes")
 											(zap-item-from-world :yard :meat)
 											(rm-obj-from-world :yard :dog)))
+									(if (and (= location :mird ) (robj-contains? :mird :mird) (or (= item :gold_bar) (= item :zegg) (= item :gold_key) (= item :crystal_key) (= item :silver_key) (= item :coin_bag)))
+										(do
+											(pntln "The monster grabs your offering in its beak and gingerly sets it on its pile of treasure. It then lies down in its nest and watches you, non-threateningly.")
+											(zap-item-from-world :mird item)
+											(change-room-des :mird "You are in a expansive cave with a floor covered with sticks and even a few bones. In the center of the room is a giant nest occupied by a resting bird-monkey monster. It is looking at you non-threateningly. In the nest is a huge hoard of riches, gold, and jewels. There is a hallway to the North, and to the South there is a massive doorway through which you can see green grass and sunlight.")
+											(rm-obj-from-world :mird :mird)))
 									(if (= location :mineshaft_mid)
 										(do
 											(pntln "The object slips from your hand and falls down into the mineshaft. You here a echo come up the mineshaft as the item hits the bottom.")
@@ -84,6 +92,11 @@
 										(do
 											(pntln "The object slips from your hand and falls down, out of sight.")
 											(zap-item-from-world :mineshaft_overlook item)))
+									(if (= location :mineshaft_overlook_2)
+										(do
+											(pntln "The object slips from your hand and falls down, out of sight.")
+											(zap-item-from-world :mineshaft_overlook_2 item)))
+
 									(if (= location :pit_room )
 										(do
 											(pntln "The object slips from your hand and tumbles into the black abyss below you.")
@@ -99,7 +112,7 @@
 											(set-door-open :door_to_overlook_ladder "A doorway opens in the stone of the North wall of the room.")
 											(change-room-des :crystal_room "You find yourself in a large square room. A strange contraption stands in the center of the room. It has wires and tubes all running into the walls away from a glowing, crimson crystal about the size of your fist. Red light is being drawn from the crystal, through the wires and tubes, and into the walls. A hallway leads East, and there is a doorway to the North.")
 											(change-room-des :mineshaft_overlook "You are on a long viewing area looking over a massive cavern filled with a complex of chutes, minecart tracks, and metal catwalks. A few minecarts, piled with gold ore, zip along a track, powered by a red glow that seems to pull them along. Machines are chugging, engines whirring and the far off sound of pickaxes can be heard. The viewing are continues to the East, and there is a tunnel to the South.")
-											(change-room-des :mineshaft_elevator "You are inside a unsteady, rusted elevator cage. Above you there is a system of pulleys and cables that suspend the elevator from the ceiling. There is no obvious way to control the elevator, except a tiny, red keyhole with the words \"In case of emergency\" enscribed below it. The kehole is glowing with red light. There is an exit to the West.")))
+											(change-room-des :mineshaft_elevator "You are inside a unsteady, rusted elevator cage. Above you there is a system of pulleys and cables that suspend the elevator from the ceiling. There is no obvious way to control the elevator, except a tiny, red keyhole with the words \"In case of emergency\" enscribed below it. The keyhole is glowing with red light. There is an exit to the West.")))
 
 					))))}
 					
@@ -200,12 +213,12 @@
 		
 		
 			
-	:quit {
-		:name "quit"
-		:helptext "Description: used to exit out of the game\nUsage: quit"
-		:fn (fn [_ _]
-			(set-not-done false)
-			)}
+;	:quit {
+;		:name "quit"
+;		:helptext "Description: used to exit out of the game\nUsage: quit"
+;		:fn (fn [_ _]
+;			(set-not-done false)
+;			)}
 		
 	)
 )

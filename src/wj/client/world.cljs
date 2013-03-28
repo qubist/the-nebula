@@ -184,8 +184,8 @@
 		:flooded_room_2 {:des "You are in a very small, square room that is flooded with water up to your knees. The water is stagnant and brown, and a few huge mushroom spores float in it. A water-worn ladder goes up.",
 							:con {:e :flooded_room_1, :u :mush_room_entrance}
 							:rinv {}}
-		:mush_room_entrance {:des "You are in a medium sized room with a door to the North and a doorway to a hall to the West.",
-							:con {:n :s_mush_room, :w :crystal_hall_1}
+		:mush_room_entrance {:des "You are in a medium sized room with a door to the North and a doorway to a hall to the West. The way North smells damp and earthy. A ladder leads down into a room full of water.",
+							:con {:n :s_mush_room, :w :crystal_hall_1, :d :flooded_room_2}
 							:rinv {}}
 		:s_mush_room {:des "You are at the South end of a long, dim room. The room is filled with huge mushrooms that are growing out of the floor, which is made of dirt. At the opposite end of the room, to the North, there is a mushroom that is at least twice as big as the others.",
 							:con {:n :n_mush_room, :s :mush_room_entrance}
@@ -208,7 +208,7 @@
 		:overlook_ladder {:des "You are in a tiny room. A ladder leads up into a tube.",
 							:con {:s :crystal_room, :u :mineshaft_overlook_2}
 							:rinv {}}
-		:bee_hall {:des "You are in a hallway that leads South, back to the crossroads. There is an door to the North with a broken golden keyhole in it. To the West there is a crack in the wall just large enough for you to crawl through. You don't hear an ominous humming sound coming from the crack.",
+		:bee_hall {:des "You are in a hallway that leads South, back to the crossroads. There is a door to the North with a broken golden keyhole in it. To the West there is a crack in the wall just large enough for you to crawl through. You don't hear an ominous humming sound coming from the crack.",
 							:con {:n :bee_ladder, :s :crossroads, :w :bee_nest}
 							:rinv {}}
 		:bee_nest {:des "You are in a large crack in the wall of a hallway. Another crack branches off to the South, but the path is blocked by an empty bee's nest. There is an exit to the East.",
@@ -277,11 +277,29 @@
 		:snow_cliff_dead {:des "You are in a dense forest at the bottom of a sheer cliff. The forest is impenetrable and there is no way up the cliff. To the West lies a small clearing at the bottom of the cliff.",
 							:con {:w :snow_cliff_bottom}
 							:rinv {}}
-		:snow_cliff_passage {:des "You are in a long dark cave that leads straight South, into the depths of the cliff. The exit to the outside lies to the North.",
+		:snow_cliff_cave_passage {:des "You are in a long dark cave that leads straight South, into the depths of the cliff. The exit to the outside lies to the North.",
 							:con {:n :snow_cliff_bottom, :s :snow_cliff_cave_1}
 							:rinv {}}
-		:snow_cliff_cave_1 {:des "You are in a round cave room. A passage leads to the North, and a doorway leads to the West. To the East is another doorway, and you can see the room beyond it is somehow lit with bright sunlight.",
-							:con {:e :snow_cliff_cave_sun, :n :snow_cliff_passage}
+		:snow_cliff_cave_1 {:des "You are in a round cave-like room. A passage leads to the North, out of the cave, and a doorway leads to the West. To the East is another doorway, and you can see the room beyond it is somehow lit with bright sunlight.",
+							:con {:e :snow_cliff_cave_sun, :n :snow_cliff_cave_passage, :w :snow_cliff_cave_web}
+							:rinv {}}
+		:snow_cliff_cave_web {:des "You are in a smallish dead-end hallway that has a huge spider web across it. The rest of the cave lies to the East.",
+							:con {:e :snow_cliff_cave_1}
+							:rinv {}}
+		:snow_cliff_cave_sun {:des "You are in a square stone-walled room with a hole in the ceiling. A beam of warm sunlight is shining through the hole and it lands on an empty stone pedastal. A hallway goes to the South, and there is a doorway to the West",
+							:con {:w :snow_cliff_cave_1, :s :snow_cliff_cave_passage_2}
+							:rinv {}}
+		:snow_cliff_cave_passage_2 {:des "You find yourself in a stone passageway that goes to the South and to the North.",
+							:con {:n :snow_cliff_cave_sun, :s :mird_entrance}
+							:rinv {}}
+		:mird_entrance {:des "You are in a tiny anteroom. sticks and small bits of jewlery and precious metals are strewn about the floor. A hallway goes North, and there is a doorway to the South. From that direction, you hear a faint breathing noise.",
+							:con {:s :mird, :n :snow_cliff_cave_passage_2}
+							:rinv {}}
+		:mird {:des "You are in a expansive cave with a floor covered with sticks and even a few bones. In the center of the room is a giant nest. In the nest is a huge hoard of riches, gold, and jewels, gaurded by a huge monster with head and wings of a bird, but the body, tail, and legs of a hairy monkey. The monster watches you threateningly. There is a hallway to the North, and to the South there is a massive doorway through which you can see green grass and sunlight.",
+							:con {:s :mird_hillb, :n :mird_entrance}
+							:robj {:mird ""}} ;FIXME
+		:mird_hillb {:des "You are at the bottom of a steep grassy slope that FIXME",
+							:con {}
 							:rinv {}}
 
 		}
