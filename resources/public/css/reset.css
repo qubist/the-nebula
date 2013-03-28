@@ -98,6 +98,16 @@ div#tabs #navclose {
 	clear:both;
 	height: 8px;
 }
+div#report-issue {
+	position: absolute;
+	bottom: 20px;
+	z-index: 10;
+	display: block;
+}
+div#report-issue a {
+	padding: 8px;
+	background-color: #f8f8f8;
+}
 h1 {
 	font-size: 150%;
 }

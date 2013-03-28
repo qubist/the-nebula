@@ -28,10 +28,10 @@
 (defpartial x []
   [:div [:div#log] [:input#command {:type "text"}]])
 (append $content (x))
-
 (def $body ($ :body))
 (def $cmd ($ :#command))
 (def $log ($ :#log))
+
 (set-log $log)
 
 (defn handle-command []
