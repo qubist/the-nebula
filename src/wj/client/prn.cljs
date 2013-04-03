@@ -10,7 +10,7 @@
 
 (def txt [:p ])
 (defn pntln [l]
-  (def txt (conj txt l [:br]))
+  (def txt (apply conj txt (reverse (rest (reverse (apply concat (map #(conj [%1] [:br]) (clojure.string/split l #"\n"))))))))
   (append $log (entry txt))
   (def txt [:p])
 )

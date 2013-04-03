@@ -29,7 +29,7 @@
 			[:p.last ""]
 			[:img#loading-img {:src "/art/loading.gif"}]
 			(cljs/include-scripts :with-jquery)
-			[:div#report-issue [:a {:href "/qog/issues"} "Report problems! Pretty please?"]]
+			[:div#report-issue [:a {:href "/qog/issues" :target "_blank"} "Report problems! Pretty please?"]]
 ))
 
 (defpage "/contact" []
@@ -107,6 +107,7 @@
  		(cond 
 			(valid? issue)
 			(do
+				(spit "issues.txt" (str issue "\n") :append true)
 				(send-email)
         		(common/layout
 		   			[:p [:b "Thanks!"]]
@@ -114,3 +115,9 @@
 			true
 			(render "/qog/issues" issue)
 		))
+
+(defpage "/qog/admin" []
+	(common/layout
+		(let [text (clojure.string/split (slurp "issues.txt") #"\n")]
+			(into [:div [:p [:b "Name:"] "some name"] [:p [:b "Email:"] "some email"]] (map #(vector :p %1)  text))
+				)))
