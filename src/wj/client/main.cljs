@@ -3,6 +3,7 @@
             [clojure.browser.repl :as repl]
             [crate.core :as crate]
             [wj.client.commands :as commands]
+			[clojure.string :as str]
 
 )
   (:use [jayq.core :only [$ append val delegate inner bind hide]]
@@ -16,7 +17,7 @@
 ;; Dev stuff
 ;;************************************************
 
-(watcher/init)
+;(watcher/init)
 ;(repl/connect "http://localhost:9000/repl")
 
 ;;************************************************
@@ -24,6 +25,7 @@
 ;;************************************************
 
 (def $content ($ :#wrapper))
+(defn des [] (:des (location world)))
 
 (defpartial x []
   [:div [:div#log] [:input#command {:type "text"}]])
@@ -40,7 +42,7 @@
   (let [cmd (-> $cmd (val))]
     (pntln cmd)
     (commands/do-commands cmd))
-  (pntln (:des (location world)))
+	  (pntln (des))
   (print-items-in-room)
   (-> $cmd (val ""))
 )
@@ -57,4 +59,4 @@
 
 (initialize)
 (hide ($ :#loading-img))
-(pntln (:des (location world)))
+(pntln (des))

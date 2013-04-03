@@ -20,7 +20,7 @@
 		   [:p [:b "Instructions"]]
 		   [:p "In the game, you use commands to move around and interact with the world. For example, use the command \"n\" to move North, \"s\" to move South, etc."]
 		   [:p.last "Using the command \"help\" will give you a list of commands and what they do. If you type \"help\" and then one of the commands on the list, it will give you detailed information on that command"]
-		   [:p [:a {:href "/qog/play"} "Play Quest for the Ojerian Gemerald!"]]
+		   [:p [:a {:href "/qog/play"} "Play Quest for the Ojeran Gemerald!"]]
 ))
 
 (defpage "/qog/play" []
