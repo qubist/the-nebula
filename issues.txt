@@ -1,5 +1,0 @@
-{:issue "add cows\r\n\r\nand chickens", :issue_type "feature", :email "test@test.test", :name "test1"}
-{:issue "add birds\r\n\r\nand bears", :issue_type "feature", :email "test@test.test", :name "test2"}
-{:issue "add birds\r\n\r\nand bears", :issue_type "feature", :email "test@test.test", :name "test2"}
-{:issue "walk in grassy room you are suddenly gassy.", :issue_type "bug", :email "afdg@sdfg.dfshj", :name "sg"}
-{:issue "fasg", :issue_type "bug", :email "sadg", :name "dsf"}

@@ -4,3 +4,5 @@ pom.xml
 /classes/
 .lein-deps-sum
 resources/public/cljs/
+.lein-repl-history
+issues.txt
