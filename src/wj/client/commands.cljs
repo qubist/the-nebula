@@ -206,7 +206,7 @@
 		:fn (fn [p _]
 			(let [command (find-command p)]
 			(cond
-				(= p "") (pntln (str "commands:\n" (join "\n" (map (fn [[key val]] (get val :name)) (dissoc commands :dev)))))
+				(= p "") (pntln (str "Commands:\n" (join "\n" (map (fn [[key val]] (get val :name)) (dissoc commands :dev)))))
 				(not (= command nil)) (pntln (get command :helptext))
 				true (pntln (str "\"" p "\"" " is not a command"))
 				)
