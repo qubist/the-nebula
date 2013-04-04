@@ -23,7 +23,9 @@
 		(and (= con :mineshaft_overlook_2) (= location :overlook_ladder)) (do (set-location :mineshaft_overlook_2) "As you start to climb the ladder, a swift wind shoots you up the tube and out into a cavern filled with mining instruments. You land on a metal platform.")
 		(and (= location :cath_stransc) (= con :cath_crypt_web) (door-closed? :door_to_cath_crypt_web)) "The trapdoor is locked."
 		(and (= con :flooded_room_1) (= location :mine_room_1)) (do (set-location :flooded_room_1) "You fall through the hole and into shallow water.")
-		(and (= con :mird_hillb) (= location :mird)) (do (set-location :mird_hillb) "You step out the massive doorway and immediately trip over a rock and tumble down the steep grassy slope.")
+		(and (= con :mird_hillb) (= location :mird)) (do (set-location :mird_hillb) "You step out the massive doorway and immediately trip over a rock and tumble down a steep grassy slope.")
+		(and (= con :bee_hall) (= location :crossroads)) (do (set-location :bee_hall) "As soon as you step into the Northern passageway, a huge stone slab smashes down behind you sealing the way back.")
+		(and (= con :mineshaft_top) (= location :crossroads)) (do (set-location :mineshaft_top) "As soon as you step into the South-leading passageway, a huge stone slab crashes down behind you sealing the way back.")
 		true false))
 
 			

@@ -154,8 +154,8 @@
 		:crossroads {:des "You are in a passageway that splits off. One way leads North and one way South. There are two signs here, one pointing North, and one pointing South. The sign pointing North says \"Hither\" The sign pointing South says \"Yon\" The passage also goes back to the East.",
 							:con {:e :d_room_1, :n :bee_hall, :s :mineshaft_top}
 							:rinv {}}
-		:mineshaft_top {:des "You are at the top of a large, vertical mineshaft. It goes straight down into the earth as far as you can see. A metal ladder leads down the side of the mineshaft. To the East, there is an old elevator cage suspended to the ceiling by rusty metal cables. The passageway leads back to the North",
-							:con {:e :mineshaft_elevator, :d :mineshaft_mid, :n :crossroads}
+		:mineshaft_top {:des "You are at the top of a large, vertical mineshaft. It goes straight down into the earth as far as you can see. A metal ladder leads down the side of the mineshaft. To the East, there is an old elevator cage suspended to the ceiling by rusty metal cables. The passageway leads back to the North, but is blocked by a gigantic stone slab.",
+							:con {:e :mineshaft_elevator, :d :mineshaft_mid}
 							:rinv {}}
 		:mineshaft_elevator {:des "You are inside a unsteady, rusted elevator cage. Above you there is a system of pulleys and cables that suspend the elevator from the ceiling. There is no obvious way to control the elevator, except a tiny, red keyhole with the words \"In case of emergency\" inscribed below it. There is an exit to the West.",
 							:con {:w :mineshaft_top}
@@ -208,8 +208,8 @@
 		:overlook_ladder {:des "You are in a tiny room. A ladder leads up into a tube.",
 							:con {:s :crystal_room, :u :mineshaft_overlook_2}
 							:rinv {}}
-		:bee_hall {:des "You are in a hallway that leads South, back to the crossroads. There is a door to the North with a broken golden keyhole in it. To the West there is a crack in the wall just large enough for you to crawl through. You don't hear an ominous humming sound coming from the crack.",
-							:con {:n :bee_ladder, :s :crossroads, :w :bee_nest}
+		:bee_hall {:des "You are in a hallway that leads to the North where there is a door with a broken golden keyhole in it. To the West there is a crack in the wall just large enough for you to crawl through. You don't hear an ominous humming sound coming from the crack. The hallway also goes back to the South, but the path is blocked by a gargantuan stone slab.",
+							:con {:n :bee_ladder, :w :bee_nest}
 							:rinv {}}
 		:bee_nest {:des "You are in a large crack in the wall of a hallway. Another crack branches off to the South, but the path is blocked by an empty bee's nest. There is an exit to the East.",
 							:con {:e :bee_hall, :s :bee_crack}
