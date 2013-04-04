@@ -21,10 +21,10 @@
 	(def world
 
 ;room
-		{:starting_chamber {:des "You are in a small, bare room with an empty chest in the corner. There are doors heading in all four directions.", 
+		{:starting_chamber {:des "You are in a small, bare room. There are doors heading in all four directions.", 
 							:con {:n :kitchen, :s :yard, :e :bedroom, :w :cellar_stairs}
 							:rinv {}}
-		:kitchen {:des "You are in a kitchen with a stove, cupboards and shelves.",
+		:kitchen {:des "You are in a meagerly sized kitchen, that is completely barren of any cooking utensils, or supplies. To the West there is a window that has been boarded up with thick wooden planks from the outside.",
 							:con {:s :starting_chamber}
 							:rinv {:meat "a hunk of meat"}}
 		:bedroom {:des "You are in a bedroom with a large bed, and a bedside table.",
@@ -52,7 +52,7 @@
 		:merchant_shop_entrance {:des "You are on the porch of a merchant's shop. There is a door to your West that goes into the shop. You see light through the crack under the door.",
 							:con {:e :road, :w :merchant_shop, :n :secret_room}
 							:rinv {}}
-		:merchant_shop {:des "You are in a merchant's shop. There are chests all around the room filled with merchandise. The merchant says \"Hello, adventurer. If you need anything, I can sell it to you here.\" There is an exit to the East.",
+		:merchant_shop {:des "You are in a merchant's shop that is thoroughly abandoned. There are chests all around the room, but they are empty, old, and half rotted. There is an exit to the East.",
 							:con {:e :merchant_shop_entrance}
 							:rinv {:copper_key {:des "a large copper key" :regex #"copper key|key" }}}
 	   	:secret_room {:des "You are in a secret room. Don't be too proud of yourself, it's not that special.",
