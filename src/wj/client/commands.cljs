@@ -270,8 +270,11 @@
 	]
 	(if (nil? command)
 		(pntln (random-answer 
-					(let [x (str "What is this \"" input "\" of which you speak?")]
-						[x x x (str "What do you mean, \"" input "\"?") (str "I don't know what \"" input "\" means.")]
+					(let [x (str "What is this \"" input "\" of which you speak?")
+						  y (str "What do you mean, \"" input "\"?")
+						  z (str "I don't know what \"" input "\" means.")
+						  a (str "I'm sorry, Dave, I'm afraid I can't do that.")]
+						[x x x x x x x x x y y y z z z a]
 					)))
 		
 		((get command :fn) p input)
