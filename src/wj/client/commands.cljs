@@ -24,8 +24,8 @@
 		(and (= location :cath_stransc) (= con :cath_crypt_web) (door-closed? :door_to_cath_crypt_web)) "The trapdoor is locked."
 		(and (= con :flooded_room_1) (= location :mine_room_1)) (do (set-location :flooded_room_1) "You fall through the hole and into shallow water.")
 		(and (= con :mird_hillb) (= location :mird)) (do (set-location :mird_hillb) "You step out the massive doorway and immediately trip over a rock and tumble down a steep grassy slope.")
-		(and (= con :bee_hall) (= location :crossroads)) (do (set-location :bee_hall) "As soon as you step into the Northern passageway, a huge stone slab smashes down behind you sealing the way back.")
-		(and (= con :mineshaft_top) (= location :crossroads)) (do (set-location :mineshaft_top) "As soon as you step into the South-leading passageway, a huge stone slab crashes down behind you sealing the way back.")
+		(and (= con :bee_hall) (= location :crossroads)) (do (set-location :bee_hall) "As soon as you step into the northern passageway, a huge stone slab smashes down behind you sealing the way back.")
+		(and (= con :mineshaft_top) (= location :crossroads)) (do (set-location :mineshaft_top) "As soon as you step into the south-leading passageway, a huge stone slab crashes down behind you sealing the way back.")
 		true false))
 
 			
@@ -42,10 +42,10 @@
 (def commands
 	(array-map
 		
-	:n {:name "n" :helptext "Description: used to travel to the North\nUsage: n" :fn (fn [_ _] (move "n"))}
-	:s {:name "s" :helptext "Description: used to travel to the South\nUsage: s" :fn (fn [_ _] (move "s"))}
-	:e {:name "e" :helptext "Description: used to travel to the East\nUsage: e" :fn (fn [_ _] (move "e"))}
-	:w {:name "w" :helptext "Description: used to travel to the West\nUsage: w" :fn (fn [_ _] (move "w"))}
+	:n {:name "n" :helptext "Description: used to travel to the north\nUsage: n" :fn (fn [_ _] (move "n"))}
+	:s {:name "s" :helptext "Description: used to travel to the south\nUsage: s" :fn (fn [_ _] (move "s"))}
+	:e {:name "e" :helptext "Description: used to travel to the east\nUsage: e" :fn (fn [_ _] (move "e"))}
+	:w {:name "w" :helptext "Description: used to travel to the west\nUsage: w" :fn (fn [_ _] (move "w"))}
 	:u {:name "u" :helptext "Description: used to go up\nUsage: u" :fn (fn [_ _] (move "u"))}
 	:d {:name "d" :helptext "Description: used to go down\nUsage: d" :fn (fn [_ _] (move "d"))}
 	
@@ -84,7 +84,7 @@
 										(do
 											(pntln "The monster grabs your offering in its beak and gingerly sets it on its pile of treasure. It then lies down in its nest and watches you, non-threateningly.")
 											(zap-item-from-world :mird item)
-											(change-room-des :mird "You are in a expansive cave with a floor covered with sticks and even a few bones. In the center of the room is a giant nest occupied by a resting bird-monkey monster. It is looking at you non-threateningly. In the nest is a huge hoard of riches, gold, and jewels. There is a hallway to the North, and to the South there is a massive doorway through which you can see green grass and sunlight.")
+											(change-room-des :mird "You are in a expansive cave with a floor covered with sticks and even a few bones. In the center of the room is a giant nest occupied by a resting bird-monkey monster. It is looking at you non-threateningly. In the nest is a huge hoard of riches, gold, and jewels. There is a hallway to the north, and to the south there is a massive doorway through which you can see green grass and sunlight.")
 											(rm-obj-from-world :mird :mird)))
 									(if (= location :mineshaft_mid)
 										(do
@@ -111,10 +111,10 @@
 										(do
 											(pntln "As you place the crystal into the contraption, It starts to glow, and red light starts to be drawn from the crystal, through the wires and tubes, and into the walls. You hear the sound of machinery starting up.")
 											(zap-item-from-world :crystal_room :crystal)
-											(set-door-open :door_to_overlook_ladder "A doorway opens in the stone of the North wall of the room.")
-											(change-room-des :crystal_room "You find yourself in a large square room. A strange contraption stands in the center of the room. It has wires and tubes all running into the walls away from a glowing, crimson crystal about the size of your fist. Red light is being drawn from the crystal, through the wires and tubes, and into the walls. A hallway leads East, and there is a doorway to the North.")
-											(change-room-des :mineshaft_overlook "You are on a long viewing area looking over a massive cavern filled with a complex of chutes, minecart tracks, and metal catwalks. A few minecarts, piled with gold ore, zip along a track, powered by a red glow that seems to pull them along. Machines are chugging, engines whirring and the far off sound of pickaxes can be heard. The viewing are continues to the East, and there is a tunnel to the South.")
-											(change-room-des :mineshaft_elevator "You are inside a unsteady, rusted elevator cage. Above you there is a system of pulleys and cables that suspend the elevator from the ceiling. There is no obvious way to control the elevator, except a tiny, red keyhole with the words \"In case of emergency\" enscribed below it. The keyhole is glowing with red light. There is an exit to the West.")))
+											(set-door-open :door_to_overlook_ladder "A doorway opens in the stone of the north wall of the room.")
+											(change-room-des :crystal_room "You find yourself in a large square room. A strange contraption stands in the center of the room. It has wires and tubes all running into the walls away from a glowing, crimson crystal about the size of your fist. Red light is being drawn from the crystal, through the wires and tubes, and into the walls. A hallway leads east, and there is a doorway to the north.")
+											(change-room-des :mineshaft_overlook "You are on a long viewing area looking over a massive cavern filled with a complex of chutes, minecart tracks, and metal catwalks. A few minecarts, piled with gold ore, zip along a track, powered by a red glow that seems to pull them along. Machines are chugging, engines whirring and the far off sound of pickaxes can be heard. The viewing are continues to the east, and there is a tunnel to the south.")
+											(change-room-des :mineshaft_elevator "You are inside a unsteady, rusted elevator cage. Above you there is a system of pulleys and cables that suspend the elevator from the ceiling. There is no obvious way to control the elevator, except a tiny, red keyhole with the words \"In case of emergency\" enscribed below it. The keyhole is glowing with red light. There is an exit to the west.")))
 
 					))))}
 					
