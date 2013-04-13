@@ -11,14 +11,13 @@
          (common/layout
            [:p.last "Welcome to " [:b "The Nebula"]", Will Harris-Braun's website."]
 		   [:p.last "(It's not quite done yet. Don't tell anyone!)"]
-;		   [:p [:a {:href "/qog/start"} "Quest On!"]]
 ))
 
 (defpage "/qog/start" []
          (common/layout
-		   [:p.last [:b [:i "Quest for the Ojeran Gemerald"]] " is a text-based game with no sound (yet), and no graphics. You can play it if you like!"]
-		   [:p [:b "Instructions"]]
-		   [:p "In the game, you use commands to move around and interact with the world. For example, use the command \"n\" to move North, \"s\" to move South, etc."]
+		   [:p.last [:b [:i "Quest for the Ojeran Gemerald"]] " is a text-based, role-playing, adventure game. You can play it if you like! It will have background music soon."]
+		   [:p [:b "Instructions:"]]
+		   [:p "In the game, you use text commands to move around and interact with the world. For example, use the command \"n\" to move North, \"u\" to move up, etc."]
 		   [:p.last "Using the command \"help\" will give you a list of commands and what they do. If you type \"help\" and then one of the commands on the list, it will give you detailed information on that command"]
 		   [:p [:a {:href "/qog/play"} "Play Quest for the Ojeran Gemerald!"]]
 ))
@@ -91,7 +90,7 @@
 (defpage "/qog/issues" {:as issue}
          (common/layout
 		   [:p [:b "Hi,"]]
-		   [:p.last "Please report issues here! It really helps me make the game better and more enjoyable for everyone. It can be a pain, but really? Think of all the things I've done for " [:i "you!"]]
+		   [:p.last "Please report issues here! It really helps me make the game better and more enjoyable for everyone. It can be a pain, but really? Think of all the things I've done for " [:i "you! "] "Plus, every time you report an issue, one thousand kittens are born!"]
 		   (form-to [:post "/qog/issues"]
 		
 		   (issue-fields issue)
