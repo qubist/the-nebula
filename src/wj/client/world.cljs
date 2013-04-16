@@ -82,10 +82,10 @@
 	    :d_entrance {:des "You are at the bottom of a moist stone chute. The surface is too slippery for you to climb up. To the west, a long dim hallway extends. You can see a faint light at the end.",
 							:con {:w :d_hall}
 							:rinv {}}
-		:d_hall {:des "You are in a long dim hallway. It continues on to the west and far along it you can just make out the silhouette of a hulking shape against a bright light.",
+		:d_hall {:des "You are in a long dim hallway. It continues on to the west and far along it you can just make out the silhouette of a hulking shape against a bright light. The hallway also leads back to the east.",
 							:con {:w :sphinx, :e :d_entrance}
 							:rinv {}}
-		:sphinx {:des "You are in a dim hallway. In front of you stands a Sphinx. It says \"There are two sisters: one gives birth to the other and she, in turn, gives birth to the first. Who are the two sisters? Answer the riddle or face your doom!\" Behind the Sphinx is a blinding light.",
+		:sphinx {:des "You are in a dim hallway running from east to west. In front of you stands a Sphinx. It says \"There are two sisters: one gives birth to the other and she, in turn, gives birth to the first. Who are the two sisters? Answer the riddle or face your doom!\" Behind the Sphinx–to teh west–is a blinding light.",
 							:con {:w :l_en, :e :d_hall}
 							:rinv {}}
 		:l_en {:des "The blinding light makes it impossible to see.",
