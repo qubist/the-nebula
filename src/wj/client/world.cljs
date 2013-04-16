@@ -98,7 +98,7 @@
 							:con {:n :l_1, :w :l_3}
 							:rinv {}}
 		:l_3 {:des "The blinding light makes it impossible to see.",
-							:con {:n :l_4, :e :l_2, :w :l_03}
+							:con {:n :l_4, :e :l_2}
 							:rinv {}}
 		:l_4 {:des "The blinding light makes it impossible to see.",
 							:con {:n :l_ex, :s :l_3}
@@ -106,16 +106,10 @@
 		:l_01 {:des "The blinding light makes it impossible to see.",
 							:con {:s :l_en, :w :l_02}
 							:rinv {}}
-		:l_02 {:des "The blinding light makes it impossible to see.",
-							:con {:e :l_01}
-							:rinv {}}
-		:l_03 {:des "The blinding light makes it impossible to see.",
-							:con {:e :l_3}
-							:rinv {}}
 		:l_ex {:des "The blinding light makes it impossible to see.",
 							:con {:s :l_4, :w :mud_room}
 							:rinv {}}
-		:mud_room {:des "You are in a large rectangular room. The floor is completely covered with thick, squishy mud, up to your ankles. A door leads to the north.",
+		:mud_room {:des "You are in a large rectangular room. The floor is completely covered with thick, squishy mud that comes up to your ankles. A door leads to the north.",
 							:con {:e :l_ex, :n :zegg_room}
 							:rinv {:gray_pebble {:des "a round gray pebble" :regex #"round gray pebble|gray pebble|round pebble|pebble"}}}
 		:zegg_room {:des "You are in a small square room. In the center of the room is a round pedestal. On it sits a beautiful jewel encrusted egg. To the west there is a door",
