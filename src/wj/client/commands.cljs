@@ -26,6 +26,7 @@
 		(and (= con :mird_hillb) (= location :mird)) (do (set-location :mird_hillb) "You step out the massive doorway and immediately trip over a rock and tumble down a steep grassy slope.")
 		(and (= con :bee_hall) (= location :crossroads)) (do (set-location :bee_hall) "As soon as you step into the northern passageway, a huge stone slab smashes down behind you sealing the way back.")
 		(and (= con :mineshaft_top) (= location :crossroads)) (do (set-location :mineshaft_top) "As soon as you step into the south-leading passageway, a huge stone slab crashes down behind you sealing the way back.")
+		(and (= con :d_entrance) (= location :cave_update)) (do (set-location :d_entrance) "You step down the chute-like hole revealed by the trapdoor, expecting there to be a ladder. Therefore, when there isn't one, you fall down the slippery chute and slide to the bottom.")
 		true false))
 
 			
