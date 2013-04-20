@@ -153,7 +153,7 @@
 						(change-room-des :sphinx "You are in a dim hallway running from east to west. In front of you lies a sleeping Sphinx. It is snoring heavily. Behind the Sphinx–to the west–the hallway is hard too see because of a blinding light."))
 					(pntln "The Sphinx says \"That is not the answer. Try again.\""))
 					(pntln "The Sphinx stirs, and mumbles in its sleep."))
-				(= location :pword_room) (if (re-find #"sir" (lower-case input))
+				(= location :pword_room) (if (re-find #"sir|act" (lower-case input))
 					(do (pntln "The room shakes violently and the door slides open.")
 						(set-riddle-answered :pword_room))
 					(pntln "The room shakes slightly, but the door does not open."))
@@ -168,13 +168,14 @@
 		:helptext "Description: used to read items\nUsage: read <item>"
 		:fn (fn [p _]
 			(let [have-journal (contains? inv :journal)]
-			  (cond (and (= p "journal") have-journal (not(= location :study))) (pntln "You open the journal to find that age has worn the already faint marks from the page. You can only make out some of the words and letters; the rest are smudged or faded beyond recognition. You read from the last entry:\n\"M y 12, 174 A. .E. \nI f ar that t ey h  e disc     d our    in  plac . T   Ojer n Gem  ald i  ot saf  here. My fa  e  asu es m  that t   ke  is h  den, an   e wil   e s  e. I am n t so   rtan. Tom r w  e  will relo  te the    eral  t  a s     po  ti  . It will b  v ry dan    us.\nI l  e  n fe r.\nTh y a e comi g.\"")
-					(and (= p "journal") have-journal (= location :study)) (pntln "The journal emits a green glow from the pages and the letters are reformed by green glowing lines. The passage reads:\n\"May 12, 174 A.C.E. \nI fear that they have discovered our hiding place. The Ojeran Gemerald is not safe here. My father asures me that the key is hidden, and we will be safe. I am not so certan. Tomorow we will relocate the Gemerald to a safer position. It will be very dangerous.\nI live in fear.\nThey are coming.\"")
+			  (cond (and (= p "journal") have-journal (not(= location :study))) (pntln "You open the journal to find that age has worn the already faint marks from the page. You can only make out some of the words and letters; the rest are smudged or faded beyond recognition. You read from the last entry:\n\"M y 12, 174 A. .E. \nI f ar that t ey h  e disc     d our    in  plac . T   Ojer n Gem  ald i  ot saf  here. My fa  e  asu es m  that t   ke  is h  den, an   e wil   e s  e. I am n t so   rtan. Tom rr w  e  will relo  te the    eral  t  a s     po  ti  . It will b  v ry dan   us.\nI l  e  n fe r. Th y a e comi g.\"")
+					(and (= p "journal") have-journal (= location :study)) (pntln "The journal emits a green glow from the pages and the previously broken letters are completed by green glowing lines. The passage now reads:\n\"May 12, 174 A.C.E. \nI fear that they have discovered our hiding place. The Ojeran Gemerald is not safe here. My father asures me that the key is hidden, and we will be safe. I am not so certan. Tomorrow we will relocate the Gemerald to a safer position. It will be very dangeous.\nI live in fear. They are coming.\"")
 					(and (contains? inv :hint_note) (re-find (get (get inv :hint_note) :regex) p)) (pntln "The paper says:\n\"To open the door, three stones are required.\nNot things of value, just ordinary rocks.\nThe door will open, revealing a key,\nTo help you go on in your adventures.\"")
 					(= p "") (pntln "What would you like to read?")
 					true (pntln (str "You can't do that."))
 				))
 			)}
+
 	:light {
 	:name "light"
 	:helptext "Description: used to light items (like lanterns) with a match\nUsage: light <item>"
