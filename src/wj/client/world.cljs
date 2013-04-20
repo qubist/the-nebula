@@ -88,29 +88,32 @@
 		:sphinx {:des "You are in a dim hallway running from east to west. In front of you stands a Sphinx. It says \"There are two sisters: one gives birth to the other and she, in turn, gives birth to the first. Who are the two sisters? Answer the riddle or face your doom!\" Behind the Sphinx–to teh west–is a blinding light.",
 							:con {:w :l_en, :e :d_hall}
 							:rinv {}}
-		:l_en {:des "The blinding light makes it impossible to see.",
-							:con {:s :l_1, :n :l_01, :e :sphinx}
+		:l_en {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
+							:con {:s :l_1, :n :l_ex_2, :e :sphinx}
 							:rinv {}}
-		:l_1 {:des "The blinding light makes it impossible to see.",
+		:l_1 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
 							:con {:s :l_2, :n :l_en}
 							:rinv {}}
-		:l_2 {:des "The blinding light makes it impossible to see.",
+		:l_2 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
 							:con {:n :l_1, :w :l_3}
 							:rinv {}}
-		:l_3 {:des "The blinding light makes it impossible to see.",
+		:l_3 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
 							:con {:n :l_4, :e :l_2}
 							:rinv {}}
-		:l_4 {:des "The blinding light makes it impossible to see.",
+		:l_4 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
 							:con {:n :l_ex, :s :l_3}
 							:rinv {}}
-		:l_01 {:des "The blinding light makes it impossible to see.",
-							:con {:s :l_en, :w :l_02}
-							:rinv {}}
-		:l_ex {:des "The blinding light makes it impossible to see.",
+		:l_ex {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
 							:con {:s :l_4, :w :mud_room}
+							:rinv {}}
+		:l_ex_2 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
+							:con {:s :l_en, :w :mud_room_2}
 							:rinv {}}
 		:mud_room {:des "You are in a large rectangular room. The floor is completely covered with thick, squishy mud that comes up to your ankles. A door leads to the north.",
 							:con {:e :l_ex, :n :zegg_room}
+							:rinv {:gray_pebble {:des "a round gray pebble" :regex #"round gray pebble|gray pebble|round pebble|pebble"}}}
+		:mud_room_2 {:des "You are in a large rectangular room. The floor is completely covered with thick, squishy mud that comes up to your ankles. A door leads to the north.",
+							:con {:e :l_ex_2, :n :zegg_room}
 							:rinv {:gray_pebble {:des "a round gray pebble" :regex #"round gray pebble|gray pebble|round pebble|pebble"}}}
 		:zegg_room {:des "You are in a small square room. In the center of the room is a round pedestal. On it sits a beautiful jewel encrusted egg. To the west there is a door",
 							:con {:s :mud_room, :w :pebble_hint}

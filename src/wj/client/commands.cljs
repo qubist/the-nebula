@@ -27,6 +27,7 @@
 		(and (= con :bee_hall) (= location :crossroads)) (do (set-location :bee_hall) "As soon as you step into the northern passageway, a huge stone slab smashes down behind you sealing the way back.")
 		(and (= con :mineshaft_top) (= location :crossroads)) (do (set-location :mineshaft_top) "As soon as you step into the south-leading passageway, a huge stone slab crashes down behind you sealing the way back.")
 		(and (= con :d_entrance) (= location :cave_update)) (do (set-location :d_entrance) "You step down the chute-like hole revealed by the trapdoor, expecting there to be a ladder. Therefore, when there isn't one, you fall down the slippery chute and slide to the bottom.")
+		(and (= location :road_2) (= con :cave_door) true) (do (set-location :cave_door) (if (contains? inv :lit_lantern) (do (invrm :lit_lantern) "As you start to walk, you trip and fall on your face and your lantern slips out of your hand, goes out, and rolls off into the thick bushes. You then pick yourself up and keep going.")))
 		true false))
 
 			
