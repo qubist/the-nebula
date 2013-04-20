@@ -344,8 +344,10 @@
 ;	 (pntln (str "found-items: " found-items))
 ;	 (pntln (str "sorted-items" sorted-items))
 	 (cond (= num-items 1) (first (first found-items))
-		   (> num-items 1) (let [[first-item first-match] (first found-items)
-								 [second-item second-match] (second found-items)]
+		   (> num-items 1) (let [[first-item first-match] (first sorted-items)
+								 [second-item second-match] (second sorted-items)]
+;	 							(pntln (str "First: " first-item))
+;		 						(pntln (str "Second: " second-item))
 								(if (not (= (count first-match) (count second-match)))
 									first-item
 									:_unclear_
