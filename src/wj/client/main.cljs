@@ -7,7 +7,7 @@
 
 )
   (:use [jayq.core :only [$ append val delegate inner bind hide]]
-        [wj.client.world :only [initialize-inventory initialize-world location world print-items-in-room]]
+        [wj.client.world :only [initialize-inventory initialize-world location world print-items-in-room inv]]
         [wj.client.prn :only [pnt pntln set-log]]
         )
   (:use-macros [crate.def-macros :only [defpartial]])
@@ -41,8 +41,13 @@
   (pnt "> ")
   (let [cmd (-> $cmd (val))]
     (pntln cmd)
+
     (commands/do-commands cmd))
 	  (pntln (des))
+	
+	(if (and (= location :study) (contains? inv :journal))
+		(pntln "Your journal glows with a green light."))
+
   (print-items-in-room)
   (-> $cmd (val ""))
 )

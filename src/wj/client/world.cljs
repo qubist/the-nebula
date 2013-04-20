@@ -136,7 +136,7 @@
 		:zegg_pit {:des "You are in a grimy pit. The floor is covered with old bones and refuse. There is no way up, but there is a door to the west.",
 							:con {:w :pit_room}
 							:rinv {}}
-		:study {:des "You are in a large study with walls, floor and ceiling made of wooden paneling. There is a desk and a chair, and a mural of a hearty adventurer holding a solid silver rock in a dark dungeon covers the east wall. Doors lead to the west and north.\nYour journal glows with a green light.",
+		:study {:des "You are in a large study with walls, floor and ceiling made of wooden paneling. There is a desk and a chair, and a mural of a hearty adventurer holding a solid silver rock in a dark dungeon covers the east wall. Doors lead to the west and north.",
 							:con {:n :pit_room, :w :clock_room}
 							:rinv {}}
 		:clock_room {:des "You are in a round, rough-walled room. You can hear a loud \"tic, tock, tic, tock...\" sound from all around you. To the north, there is a thick stone door with no handle or keyhole. Instead, it has three round holes that go into the door. To the west there is a doorway into another room.",
