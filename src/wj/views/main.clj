@@ -91,6 +91,7 @@
          (common/layout
 		   [:p [:b "Hi,"]]
 		   [:p.last "Please report issues here! It really helps me make the game better and more enjoyable for everyone. It can be a pain, but really? Think of all the things I've done for " [:i "you! "] "Plus, every time you report an issue, one thousand kittens are born!"]
+		   [:p.last "If you're super geeky, you can head over to GitHub and report issues there, or just check that stuff out: " [:a {:href "http://www.github.com/qubist/the-nebula" :target "_blank"} "GitHub"]]
 		   (form-to [:post "/qog/issues"]
 		
 		   (issue-fields issue)
