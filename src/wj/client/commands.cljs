@@ -130,7 +130,7 @@
 		:name "unlock"
 		:helptext "Description: used to unlock doors with keys or other items\nUsage: unlock <target>"
 		:fn (fn [p _]
-			(if (not (or (= p "elevator") (= p "door") (= p "lock") (= p "trapdoor"))) (pntln "You can't unlock that.")
+			(if (not (re-find #"door|trapdoor|lock|elevator" p)) (pntln "You can't unlock that.")
 							 (cond
 								(and (= location :cave_door) (contains? inv :copper_key)) (set-door-open :door_to_cave "The door unlocks with a click.")
 								(and (= location :clock_room) (contains? inv (and :black_pebble :gray_pebble :white_pebble))) (do (set-door-open :door_to_silver_key_room "The pebbles fly out of your hand into the holes, and roll smoothly down into the depths of the door. The door swings open.") (invrm :black_pebble) (invrm :gray_pebble) (invrm :white_pebble))
@@ -139,7 +139,7 @@
 								(and (= location :mineshaft_elevator) (contains? inv :crystal_key)) (do (pntln "As you turn the key in the lock, the cables supporting the elevator cage snap and you start to plummet down to the bottom of the elevator shaft. Just when you think that you are about to hit the bottom and be turned into a adventurer pancake breakfast for the nearest monster, there is a blinding flash of red light, and you feel yourself being teleported.") (set-location :outside_elevator))
 								(or (= location :cave_door) (= location :mineshaft_elevator) (= location :d_room_1) (= location :cath_stransc)) (pntln "You do not have the correct key.")
 								(= location :clock_room) (pntln "You do not have the correct items.")
-								(not (or (= location :cave_door) (= location :mineshaft_elevator) (= location :clock_room) (= location :d_room_1) (= location :cath_stransc))) (pntln "There is no locked door here.")
+								(not (or (= location :cave_door) (= location :mineshaft_elevator) (= location :clock_room) (= location :d_room_1) (= location :cath_stransc))) (pntln "Nothing here is locked.")
 							 )
 							))}
 							
