@@ -47,7 +47,7 @@
 							:con {:d :outside}
 							:rinv {}}
 		:road {:des "You are on a medium sized, well traveled, dirt road. It leads to the east and west.",
-							:con {:w :merchant_shop_entrance, :e :road2, :n :outside}
+							:con {:w :merchant_shop_entrance, :e :road_2, :n :outside}
 							:rinv {}}
 		:merchant_shop_entrance {:des "You are on the porch of a merchant's shop. There is a door to your west that goes into the shop. You see light through the crack under the door.",
 							:con {:e :road, :w :merchant_shop, :n :secret_room}
@@ -58,11 +58,11 @@
 	   	:secret_room {:des "You are in a secret room. Don't be too proud of yourself, it's not that special.",
 							:con {:s :merchant_shop_entrance}
 							:rinv {:doohickey {:des "a useless doohickey" :regex #"doohickey|useless"}}}
-		:road2 {:des "You are on the road that runs from east to west. The road continues to the west. To the east, there is a forest, with a path leading into it. You can see a clearing at the end of the path.",
+		:road_2 {:des "You are on the road that runs from east to west. The road continues to the west. To the east, there is a forest, with a path leading into it. You can see a clearing at the end of the path.",
 							:con {:w :road :e :cave_door}
 							:rinv {}}
-		:cave_door {:des "You are in a clearing in a dense forest. To the east is a huge door that is set in a cliff. In the center of the door there is a large keyhole inlaid with copper. To the north you can see a overgrown path.",
-							:con {:w :road2 :e :cave :n :pool}
+		:cave_door {:des "You are in a clearing in a dense forest. To the east is a massive cliff with a huge door set into it. In the center of the door there is a large keyhole inlaid with copper. On either side of the door there are lit torches fastened to the cliff. To the north you can see a overgrown path.",
+							:con {:w :road_2 :e :cave :n :pool}
 							:rinv {}}
 		:pool {:des "You are on the edge of a pool of crystal-clear water surrounded by dense forest. To the south, a path leads back to the clearing. To the west you can see a faint light through the trees",
 							:con {:s :cave_door, :w :forest}
