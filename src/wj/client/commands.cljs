@@ -13,7 +13,7 @@
 		(and (= location :cave_door) (= con :cave) (door-closed? :door_to_cave)) "The door is locked."
 		(and (= location :d_room_1) (= con :crossroads) (door-closed? :door_to_crossroads)) "The door is locked."
 		(and (= location :clock_room) (= con :silver_key_room) (door-closed? :door_to_silver_key_room)) "The door is locked."
-		(and (= con :outside) (robj-contains? :yard :dog)) "The dog growls and blocks your path."
+		(and (or (= con :outside) (= con :dog_path_en)) (robj-contains? :yard :dog)) "The dog growls and blocks your path."
 		(and (= con :mird_hillb) (robj-contains? :mird :mird)) "The monkey-bird monster makes a strange monkey-squawk noise and blocks the way."
 		(and (= location :sphinx) (= con :l_en) (riddle-unanswered? :sphinx)) "The Sphinx says \"Answer the riddle, and then you may pass!\""
 		(and (= location :pword_room) (= con :white_pebble_room) (riddle-unanswered? :pword_room)) "The door is locked."
@@ -79,7 +79,7 @@
 									(give-item-to-world location item)
 									(if (and (= location :yard ) (= item :meat) (robj-contains? :yard :dog))
 										(do
-											(pntln "The dog gobbles up the meat and runs off into the bushes")
+											(pntln "The dog gobbles up the meat and runs off to the west, into a gap in the bushes")
 											(zap-item-from-world :yard :meat)
 											(rm-obj-from-world :yard :dog)))
 									(if (and (= location :mird ) (robj-contains? :mird :mird) (or (= item :gold_bar) (= item :zegg) (= item :gold_key) (= item :crystal_key) (= item :silver_key) (= item :coin_bag)))

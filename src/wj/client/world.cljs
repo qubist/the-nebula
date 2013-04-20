@@ -35,11 +35,20 @@
 							:rinv {:rotten_wood {:des "a chunk of rotten wood" :regex #"chunk of rotten wood|chunk of wood|rotten wood|wood"}}}
 		:cellar {:des "You are in a damp, dimly lit cellar. Empty shelves line the walls, all of them covered with a thick layer of dust.",
 							:con {:u :cellar_stairs}
-							:rinv {:match "a match", :coin_bag {:des "a small cloth bag of silver coins" :regex #"coin|coins|bag|silver"}}}
+							:rinv {:match "a match", :coin_bag {:des "a small cloth bag of silver coins" :regex #"small cloth bag of silver coins|small bag of silver coins|cloth bag of silver coins|bag of silver coins|silver coins|coins"}}}
 		:yard {:des "You are in a yard lit by your lantern. To the south, there is a gate to the outside. To the north there is the house.",
-							:con {:n :starting_chamber, :s :outside}
+							:con {:n :starting_chamber, :s :outside, :w :dog_path_en}
 							:rinv {}
 							:robj {:dog "a hungry looking dog"}}
+		:dog_path_en {:des "You are on a small beaten path in the thick bushes that surround the house. The yard is to the east, and the path goes north.",
+							:con {:e :yard, :n :dog_path_w}
+							:rinv {}}
+		:dog_path_w {:des "You are on a beaten path that goes through the thick bushes that are around the house. To the east, the path leads into a clearing, and to the south the path heads back towards the yard.",
+							:con {:s :dog_path_en, :e :dog_path_clearing}
+							:rinv {}}
+		:dog_path_clearing {:des "You are in a small clearing in the thick bushes that are planted around the house. A dog is sleeping soundly in the center of the clearing. To the south you can vaguely see the house's boarded up windows through the bushes, but they are impossible to get to. To the west, the path leads out of the clearing.",
+							:con {:w :dog_path_w}
+							:rinv {:collar {:des "a small red dog collar" :regex #"small red dog collar|small dog collar|red dog collar|small red collar|dog collar|collar"}}}
 		:outside {:des "You are outside. There is a massive tree here.",
 							:con {:n :yard, :u :tree, :s :road}
 							:rinv {}}
