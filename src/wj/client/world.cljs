@@ -8,7 +8,7 @@
 
 (defn initialize-inventory []
 	(def inv {})
-;	(def inv {:copper_key {:des "a large copper key" :regex #"copper key|copper|key" } :meat "a hunk of meat" :lit_lantern "a lit lantern" :journal "a leatherbound journal"})
+;	(def inv {:copper_key {:des "a large copper key" :regex #"copper key|copper|key" } :meat "a hunk of meat" :lit_lantern "a lit lantern" :journal "a leatherbound journal" :black_pebble {:des "a round black pebble" :regex #"round black pebble|black pebble|round pebble|pebble"} :gray_pebble {:des "a round gray pebble" :regex #"round gray pebble|gray pebble|round pebble|pebble"}})
 	)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
