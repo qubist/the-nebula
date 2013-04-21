@@ -70,7 +70,7 @@
 					]]
 					
    [:p [:b "Issue:"] (vali/on-error :issue error-item)]
-   [:h3 "(Be specific––if the issue is a bug, state where you were, what you did, what happened, and what should have happened. If it is a typo, say where you were, what word was misspelled, and how it should have been spelled. If you are requesting that I add a certain feature, be detailed and clear.)"]
+   [:h3 "(" [:i "Be specific!"] "––if the issue is a bug, state where you were, what you did, what happened, and what should have happened. If it is a typo, say where you were, what word was misspelled, and how it should have been spelled. If you are requesting that I add a certain feature, be detailed and clear.)"]
    [:p.last [:textarea#issue {:name "issue"} issue]]
 
 	)
