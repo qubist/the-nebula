@@ -66,7 +66,7 @@
 							:rinv {:copper_key {:des "a large copper key" :regex #"copper key|key" }}}
 	   	:secret_room {:des "You are in a secret room. Don't be too proud of yourself, it's not that special.",
 							:con {:s :merchant_shop_entrance}
-							:rinv {:doohickey {:des "a useless doohickey" :regex #"doohickey|useless"}}}
+							:rinv {:doohickey {:des "a useless doohickey" :regex #"useless doohickey|doohickey"}}}
 		:road_2 {:des "You are on the road that runs from east to west. The road continues to the west. To the east, there is a forest, with a path leading into it. You can see a clearing at the end of the path.",
 							:con {:w :road :e :cave_door}
 							:rinv {}}
@@ -75,7 +75,7 @@
 							:rinv {}}
 		:pool {:des "You are on the edge of a pool of crystal-clear water surrounded by dense forest. To the south, a path leads back to the clearing. To the west you can see a faint light through the trees",
 							:con {:s :cave_door, :w :forest}
-							:rinv {:water_bottle {:des "a glass bottle containing a quantity of water" :regex #"water|bottle|glass"}}}
+							:rinv {:water_bottle {:des "a glass bottle containing a quantity of water" :regex #"glass water bottle|glass bottle|water bottle|water|bottle"}}}
 		:forest {:des "You find yourself in a small clearing surrounded by a dense forest.",
 							:con {:e :pool}
 							:rinv {:black_pebble {:des "a round black pebble" :regex #"round black pebble|black pebble|round pebble|pebble"}}}						
@@ -126,10 +126,10 @@
 							:rinv {:gray_pebble {:des "a round gray pebble" :regex #"round gray pebble|gray pebble|round pebble|pebble"}}}
 		:zegg_room {:des "You are in a small square room. In the center of the room is a round pedestal. On it sits a beautiful jewel encrusted egg. To the west there is a door",
 							:con {:s :mud_room, :w :pebble_hint}
-							:rinv {:zegg {:des "a jewel-encrusted egg" :regex #"jewel|egg|encrusted"}}}
+							:rinv {:zegg {:des "a jewel-encrusted egg" :regex #"jewel encrusted egg|encrusted egg|egg"}}}
 		:pebble_hint {:des "You are in a small cramped room. Dust covers the floor and walls and there are cobwebs on the ceiling. A ladder leads down.",
 							:con {:e :zegg_room, :d :pit_room}
-							:rinv {:hint_note {:des "a note on a sheaf of yellow paper" :regex #"note|paper"}}}
+							:rinv {:hint_note {:des "a note on a scrap of yellow paper" :regex #"yellow paper|paper|note"}}}
 		:pit_room {:des "You are in a medium sized room. Almost all of the room's floor is taken up by a deep dark hole. Only a small ledge surrounds the pit. There is a ladder coming down from above, but you cannot reach it. Doors lead east and south.",
 							:con {:e :zegg_pit, :s :study}
 							:rinv {}}
