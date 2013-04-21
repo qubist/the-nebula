@@ -94,7 +94,7 @@
 		:d_hall {:des "You are in a long dim hallway. It continues on to the west and far along it you can just make out the silhouette of a hulking shape against a bright light. The hallway also leads back to the east.",
 							:con {:w :sphinx, :e :d_entrance}
 							:rinv {}}
-		:sphinx {:des "You are in a dim hallway running from east to west. In front of you stands a Sphinx. It says \"There are two sisters: one gives birth to the other and she, in turn, gives birth to the first. Who are the two sisters? Answer the riddle or face your doom!\" Behind the Sphinx–to teh west–is a blinding light.",
+		:sphinx {:des "You are in a dim hallway running from east to west. In front of you stands a Sphinx. It says \"There are two sisters: one gives birth to the other and she, in turn, gives birth to the first. Who are the two sisters? Answer the riddle or face your doom!\" Behind the Sphinx–to the west–is a blinding light.",
 							:con {:w :l_en, :e :d_hall}
 							:rinv {}}
 		:l_en {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
@@ -187,7 +187,7 @@
 		:flooded_room_1 {:des "You are in a large room that is filled with water up to your knees. A doorway leads to the west and there is a hole in the ceiling, but no way to reach it.",
 							:con {:w :flooded_room_2}
 							:rinv {}}
-		:flooded_room_2 {:des "You are in a very small, square room that is flooded with water up to your nees. The water is stagnant and brown, and a few huge mushroom spores float in it. A water-worn ladder goes up.",
+		:flooded_room_2 {:des "You are in a very small, square room that is flooded with water up to your knees. The water is stagnant and brown, and a few huge mushroom spores float in it. A water-worn ladder goes up.",
 							:con {:e :flooded_room_1, :u :mush_room_entrance}
 							:rinv {}}
 		:mush_room_entrance {:des "You are in a medium sized room with a door to the north and a doorway to a hall to the west. The way north smells damp and earthy. A ladder leads down into a room full of water.",
@@ -226,7 +226,7 @@
 		:bee_ladder {:des "You are in small room with a ladder leading up. You can make out a faint light at the top of the ladder. There is a door to the south.",
 							:con {:u :boulder_field, :s :bee_hall}
 							:rinv {}}
-		:boulder_field {:des "You find yourself in a grasy field. In the center of the field stands a huge boulder. It has been worn smooth by the wind and looks unclimbable. Paths lead north and south through the thick wilderness of forest that surrounds the clearing, and a ladder leads down, into the ground.",
+		:boulder_field {:des "You find yourself in a grassy field. In the center of the field stands a huge boulder. It has been worn smooth by the wind and looks unclimbable. Paths lead north and south through the thick wilderness of forest that surrounds the clearing, and a ladder leads down, into the ground.",
 							:con {:d :bee_ladder, :n :sunf, :s :cath_courtyard}
 							:rinv {}}
 		:sunf {:des "You find yourself in a field of sunflowers that are each at least double your height. They are all facing towards the east. The edge of the sunflowers is to the south, and to the west is a path that leads through the sunflowers.",
@@ -292,19 +292,19 @@
 		:snow_cliff_cave_web {:des "You are in a smallish dead-end hallway that has a huge spider web across it. The rest of the cave lies to the east.",
 							:con {:e :snow_cliff_cave_1}
 							:rinv {}}
-		:snow_cliff_cave_sun {:des "You are in a square stone-walled room with a hole in the ceiling. A beam of warm sunlight is shining through the hole and it lands on an empty stone pedastal. A hallway goes to the south, and there is a doorway to the west",
+		:snow_cliff_cave_sun {:des "You are in a square stone-walled room with a hole in the ceiling. A beam of warm sunlight is shining through the hole and it lands on an empty stone pedestal. A hallway goes to the south, and there is a doorway to the west",
 							:con {:w :snow_cliff_cave_1, :s :snow_cliff_cave_passage_2}
 							:rinv {}}
 		:snow_cliff_cave_passage_2 {:des "You find yourself in a stone passageway that goes to the south and to the north.",
 							:con {:n :snow_cliff_cave_sun, :s :mird_entrance}
 							:rinv {}}
-		:mird_entrance {:des "You are in a tiny anteroom. sticks and small bits of jewlery and precious metals are strewn about the floor. A hallway goes north, and there is a doorway to the south. From that direction, you hear a faint breathing noise.",
+		:mird_entrance {:des "You are in a tiny anteroom. sticks and small bits of jewelry and precious metals are strewn about the floor. A hallway goes north, and there is a doorway to the south. From that direction, you hear a faint breathing noise.",
 							:con {:s :mird, :n :snow_cliff_cave_passage_2}
 							:rinv {}}
-		:mird {:des "You are in a expansive cave with a floor covered with sticks and even a few bones. In the center of the room is a giant nest. In the nest is a huge hoard of riches, gold, and jewels, gaurded by a huge monster with head and wings of a bird, but the body, tail, and legs of a hairy monkey. The monster watches you threateningly. There is a hallway to the north, and to the south there is a massive doorway through which you can see green grass and sunlight.",
+		:mird {:des "You are in a expansive cave with a floor covered with sticks and even a few bones. In the center of the room is a giant nest. In the nest is a huge hoard of riches, gold, and jewels, guarded by a huge monster with head and wings of a bird, but the body, tail, and legs of a hairy monkey. The monster watches you threateningly. There is a hallway to the north, and to the south there is a massive doorway through which you can see green grass and sunlight.",
 							:con {:s :mird_hillb, :n :mird_entrance}
 							:robj {:mird ""}} ;FIXME
-		:mird_hillb {:des "You are at the bottom of a steep grassy slope that is so steep that it's imposible to climb up. To the west there is a path that leads through the forest.",
+		:mird_hillb {:des "You are at the bottom of a steep grassy slope that is so steep that it's impossible to climb up. To the west there is a path that leads through the forest.",
 							:con {:w :elevator_field}
 							:rinv {}}
 		:elevator_field {:des "You are in a grassy, shrub-filled field. To the north there is the rusted shell of an old elevator cage, a quarter buried in the ground. You see no sign of how it could have gotten there. You can hear a faint squawking noise through the thick forest to the North.  Paths lead to the east and south, away from the clearing.",
