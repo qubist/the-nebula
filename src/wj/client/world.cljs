@@ -505,7 +505,8 @@
 (defn print-stuff-in-room [inv-type]
 	(let [inv (inv-type (location world))]
 		(if (and (not (nil? inv)) (not (empty? inv)))
-			(pntln (str "You see:\n" (get-inventory-descriptions inv)))
+			(let [dess (get-inventory-descriptions inv)]
+				(if (not (= dess "")) (pntln (str "You see:\n" dess))))
 			)))
 
 (defn print-items-in-room [] 
