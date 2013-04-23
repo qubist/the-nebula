@@ -29,6 +29,7 @@
 		(and (= con :mineshaft_top) (= location :crossroads)) (do (set-location :mineshaft_top) "As soon as you step into the south-leading passageway, a huge stone slab crashes down behind you sealing the way back.")
 		(and (= con :d_entrance) (= location :cave_update)) (do (set-location :d_entrance) "You step down the chute-like hole revealed by the trapdoor, expecting there to be a ladder. Therefore, when there isn't one, you fall down the slippery chute and slide to the bottom.")
 		(and (= location :road_2) (= con :cave_door) true) (do (set-location :cave_door) (if (contains? inv :lit_lantern) (do (invrm :lit_lantern) "As you start to walk, you trip and fall on your face and your lantern slips out of your hand, goes out, and rolls off into the thick bushes. You then pick yourself up and keep going.")))
+		(and (= location :mird_hillb) (= con :mird)) (do (set-location :mird_hillb) "You attempt to climb the steep grassy slope, but you fall down and slide back to the bottom.")
 		true false))
 
 			
