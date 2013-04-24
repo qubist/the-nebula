@@ -151,13 +151,14 @@
 			(if (not (re-find #"door|trapdoor|lock|elevator" p)) (pntln "You can't unlock that.")
 							 (cond
 								(and (= location :cave_door) (contains? inv :copper_key)) (set-door-open :door_to_cave "The door unlocks with a click.")
+								(and (= location :bee_hall) (contains? inv :gold_key)) (set-door-open :door_to_bee_ladder "The door unlocks quietly.")
 								(and (= location :clock_room) (contains? inv (and :black_pebble :gray_pebble :white_pebble))) (do (set-door-open :door_to_silver_key_room "The pebbles fly out of your hand into the holes, and roll smoothly down into the depths of the door. The door swings open.") (invrm :black_pebble) (invrm :gray_pebble) (invrm :white_pebble))
 								(and (= location :d_room_1) (contains? inv :silver_key)) (set-door-open :door_to_crossroads "The door unlocks smoothly.")
 								(and (= location :cath_stransc) (contains? inv :iron_key)) (set-door-open :door_to_cath_crypt_web "The heavy trapdoor clicks unlocked.")
 								(and (= location :mineshaft_elevator) (contains? inv :crystal_key)) (do (pntln "As you turn the key in the lock, the cables supporting the elevator cage snap and you start to plummet down to the bottom of the elevator shaft. Just when you think that you are about to hit the bottom and be turned into a adventurer pancake breakfast for the nearest monster, there is a blinding flash of red light, and you feel yourself being teleported.") (set-location :outside_elevator))
 								(or (= location :cave_door) (= location :mineshaft_elevator) (= location :d_room_1) (= location :cath_stransc)) (pntln "You do not have the correct key.")
 								(= location :clock_room) (pntln "You do not have the correct items.")
-								(not (or (= location :cave_door) (= location :mineshaft_elevator) (= location :clock_room) (= location :d_room_1) (= location :cath_stransc))) (pntln "Nothing here is locked.")
+								(not (or (= location :cave_door) (= location :mineshaft_elevator) (= location :clock_room) (= location :d_room_1) (= location :bee_hall) (= location :d_room_1) (= location :mineshaft_elevator) (= location :cath_stranc))) (pntln "Nothing here is locked.")
 							 )
 							))}
 							
@@ -198,15 +199,25 @@
 	:name "light"
 	:helptext "Description: used to light items (like lanterns) with a match\nUsage: light <item>"
 	:fn (fn [p _]
-		(let [item-name (keyword p)]
+		(let [item-name (search-inv p)]
 			(cond (= p "") (pntln "What would you like to light?")
 				  (not (contains? inv item-name)) (pntln (str "You don't have a " p "."))
 				  (not (contains? inv :match)) (pntln "You need a match to light things.")
-				  (not (= item-name :lantern)) (pntln (str "You can't light a " p "."))
+				  (not (or (= item-name :lantern) (= item-name :rotten_wood))) (pntln (str "You can't light a " p "."))
 				  true (do (invrm :match)
-						   (invrm item-name)
-						   (invadd :lit_lantern {:des "a lit lantern" :regex #"lit lantern|lit|lantern"})
-						   (pntln (str "You have lit a " p))))))}
+						   (if (not (= item-name :rotten_wood)) (invrm item-name))
+						   (cond
+						   		(= item-name :lantern) (invadd :lit_lantern {:des "a lit lantern" :regex #"lit lantern|lit|lantern"})
+								(= item-name :rotten_wood)
+									(do (if (and (= location :bee_nest) (robj-contains? :bee_nest :bees)) 
+												(do (rm-obj-from-world :bee_nest :bees)
+												 	(change-room-des :bee_nest "You are in a large crack in the wall of a hallway. Another crack branches off to the south. There in a bee's nest here, but all the bees are asleep because of the thick smoke that hangs in the air. There is an exit to the east.") 
+													(pntln "The rotten wood billows smoke into the surrounding area, and the bees stop buzzing around and fall asleep." ))
+														(pntln "The rotten wood does not light on fire, but it billows smoke into the surrounding area, which quickly disperses.")))
+						)
+						   (if (not (= item-name :rotten_wood)) (pntln (str "You have lit a " p)))
+			))))
+		}
 
 	:dev {
 		:name "dev"

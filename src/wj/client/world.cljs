@@ -16,7 +16,7 @@
 (defn initialize-world []
 	(def not_done true)
 	(def riddle-answered {:pword_room false, :sphinx false})
-	(def door-open {:door_to_cave false, :door_to_silver_key_room false, :door_to_crossroads false, :door_to_cath_crypt_web false, :door_to_overlook_ladder false})
+	(def door-open {:door_to_cave false, :door_to_silver_key_room false, :door_to_crossroads false, :door_to_cath_crypt_web false, :door_to_overlook_ladder false, :door_to_bee_ladder false})
 	(def location :starting_chamber)
 	(def world
 
@@ -32,7 +32,7 @@
 							:rinv {:lantern "a lantern"}}
 		:cellar_stairs {:des "You are at the top of a dank staircase that leads down.",
 							:con {:d :cellar, :e :starting_chamber}
-							:rinv {:rotten_wood {:des "a chunk of rotten wood" :regex #"chunk of rotten wood|chunk of wood|rotten wood|wood"}}}
+							:rinv {}}
 		:cellar {:des "You are in a damp, dimly lit cellar. Empty shelves line the walls, all of them covered with a thick layer of dust.",
 							:con {:u :cellar_stairs}
 							:rinv {:match "a match", :coin_bag {:des "a small cloth bag of silver coins" :regex #"small cloth bag of silver coins|small bag of silver coins|cloth bag of silver coins|bag of silver coins|silver coins|coins"}}}
@@ -141,7 +141,7 @@
 							:rinv {}}
 		:clock_room {:des "You are in a round, rough-walled room. You can hear a loud \"tic, tock, tic, tock...\" sound from all around you. To the north, there is a thick stone door with no handle or keyhole. Instead, it has three round holes that go into the door. To the west there is a doorway into another room.",
 							:con {:n :silver_key_room, :w :d_room_1, :e :study}
-							:rinv {}}
+							:rinv {:match "a match"}}
 		:silver_key_room {:des "You are in a safe-room. Empty vaults line the walls and a small metal chandelier hangs from the ceiling; its candles have long been un-lit. There is a door to the south.",
 							:con {:s :clock_room}
 							:rinv {:silver_key {:des "a small silver key" :regex #"silver key|key" }}}
@@ -214,12 +214,13 @@
 		:overlook_ladder {:des "You are in a tiny room. A ladder leads up into a tube.",
 							:con {:s :crystal_room, :u :mineshaft_overlook_2}
 							:rinv {}}
-		:bee_hall {:des "You are in a hallway that leads to the north where there is a door with a broken golden keyhole in it. To the west there is a crack in the wall just large enough for you to crawl through. You don't hear an ominous humming sound coming from the crack. The hallway also goes back to the south, but the path is blocked by a gargantuan stone slab.",
+		:bee_hall {:des "You are in a hallway that leads to the north where there is a door with a golden keyhole in it. To the west there is a crack in the wall just large enough for you to crawl through. You hear an ominous humming sound coming from inside the crack. The hallway also goes back to the south, but the path is blocked by a gargantuan stone slab.",
 							:con {:n :bee_ladder, :w :bee_nest}
-							:rinv {}}
-		:bee_nest {:des "You are in a large crack in the wall of a hallway. Another crack branches off to the south, but the path is blocked by an empty bee's nest. There is an exit to the east.",
+							:rinv {:rotten_wood {:des "a chunk of rotten wood" :regex #"chunk of rotten wood|chunk of wood|rotten wood|wood"}}}
+		:bee_nest {:des "You are in a large crack in the wall of a hallway. Another crack branches off to the south, but the way is blocked by a bee's nest in and out of which are flying a multitude of angry looking bees. There is an exit to the east.",
 							:con {:e :bee_hall, :s :bee_crack}
-							:rinv {}}
+							:rinv {}
+							:robj {:bees ""}}
 		:bee_crack {:des "You are in a small crack in a wall. There is an exit to the north.",
 							:con {:n :bee_nest}
 							:rinv {:gold_key {:des "a gold key" :regex #"gold key|key"}}}
