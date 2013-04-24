@@ -8,28 +8,43 @@
 
 ;illegal moves
 (defn illegal-move? [con]
-	(cond (nil? con) "You can't go that way."
-		(and (= con :yard) (not (contains? inv :lit_lantern))) "It's too dark to go there."
+	(cond
+		;can't
+		(nil? con) "You can't go that way."
+		(and (= location :yard) (= con :dog_path_en)) "You can't go that way."
+		(and (= location :crystal_room) (= con :overlook_ladder) (door-closed? :door_to_overlook_ladder)) "You can't go that way."
+
+		;dark
+		(and (= location :starting_chamber) (= con :yard) (not (contains? inv :lit_lantern))) "It's too dark to go there."
+
+		;door
 		(and (= location :cave_door) (= con :cave) (door-closed? :door_to_cave)) "The door is locked."
 		(and (= location :d_room_1) (= con :crossroads) (door-closed? :door_to_crossroads)) "The door is locked."
 		(and (= location :clock_room) (= con :silver_key_room) (door-closed? :door_to_silver_key_room)) "The door is locked."
-		(and (= con :outside) (robj-contains? :yard :dog)) "The dog growls and blocks your path."
-		(and (= location :yard) (= con :dog_path_en)) "You can't go that way."
-		(and (= con :mird_hillb) (robj-contains? :mird :mird)) "The monkey-bird monster makes a strange monkey-squawk noise and blocks the way."
+		(and (= location :bee_hall) (= con :bee_ladder) (door-closed? :door_to_bee_ladder)) "The door is locked."
+		(and (= location :cath_stransc) (= con :cath_crypt_web) (door-closed? :door_to_cath_crypt_web)) "The trapdoor is locked."
+
+		;robj
+		(and (= location :yard) (= con :outside) (robj-contains? :yard :dog)) "The dog growls and blocks your path."
+		(and (= location :mird) (= con :mird_hillb) (robj-contains? :mird :mird)) "The monkey-bird monster makes a strange monkey-squawk noise and blocks the way."
+		(and (= location :bee_nest) (= con :bee_crack) (robj-contains? :bee_nest :bees)) "You step forward. The bees start to buzz louder and fly around faster. You decide to reconsider."
+
+		;riddles
 		(and (= location :sphinx) (= con :l_en) (riddle-unanswered? :sphinx)) "The Sphinx says \"Answer the riddle, and then you may pass!\""
 		(and (= location :pword_room) (= con :white_pebble_room) (riddle-unanswered? :pword_room)) "The door is locked."
+
+		;trip-text
 		(and (= location :mine_room_1) (= con :lyre_room)) (do (set-location :mineshaft_bottom) (if (contains? inv :zegg) (do (invrm :zegg) "As you walk into the room, you get hit by something very heavy. When you wake up, you have a grape sized lump on the back of your head and you feel like you are missing something...") "As you walk into the room, you get hit by something very heavy. When you wake up, you have a grape sized lump on the back of your head."))
-		(= con :forest) (do (set-location :forest) "You manage to bushwack your way through the dense forest with only a small amount of hardship.")
-		(and (= location :crystal_room) (= con :overlook_ladder) (door-closed? :door_to_overlook_ladder)) "You can't go that way."
-		(and (= con :mineshaft_overlook_2) (= location :overlook_ladder)) (do (set-location :mineshaft_overlook_2) "As you start to climb the ladder, a swift wind shoots you up the tube and out into a cavern filled with mining instruments. You land on a metal platform.")
-		(and (= location :cath_stransc) (= con :cath_crypt_web) (door-closed? :door_to_cath_crypt_web)) "The trapdoor is locked."
-		(and (= con :flooded_room_1) (= location :mine_room_1)) (do (set-location :flooded_room_1) "You fall through the hole and into shallow water.")
-		(and (= con :mird_hillb) (= location :mird)) (do (set-location :mird_hillb) "You step out the massive doorway and immediately trip over a rock and tumble down a steep grassy slope.")
-		(and (= con :bee_hall) (= location :crossroads)) (do (set-location :bee_hall) "As soon as you step into the northern passageway, a huge stone slab smashes down behind you sealing the way back.")
-		(and (= con :mineshaft_top) (= location :crossroads)) (do (set-location :mineshaft_top) "As soon as you step into the south-leading passageway, a huge stone slab crashes down behind you sealing the way back.")
-		(and (= con :d_entrance) (= location :cave_update)) (do (set-location :d_entrance) "You step down the chute-like hole revealed by the trapdoor, expecting there to be a ladder. Therefore, when there isn't one, you fall down the slippery chute and slide to the bottom.")
-		(and (= location :road_2) (= con :cave_door) true) (do (set-location :cave_door) (if (contains? inv :lit_lantern) (do (invrm :lit_lantern) "As you start to walk, you trip and fall on your face and your lantern slips out of your hand, goes out, and rolls off into the thick bushes. You then pick yourself up and keep going.")))
-		(and (= location :mird_hillb) (= con :mird)) (do (set-location :mird_hillb) "You attempt to climb the steep grassy slope, but you fall down and slide back to the bottom.")
+		(and (= location :pool) (= con :forest)) (do (set-location :forest) "You manage to bushwack your way through the dense forest with only a small amount of hardship.")
+		(and (= location :overlook_ladder) (= con :mineshaft_overlook_2)) (do (set-location :mineshaft_overlook_2) "As you start to climb the ladder, a swift wind shoots you up the tube and out into a cavern filled with mining instruments. You land on a metal platform.")
+		(and (= location :mine_room_1) (= con :flooded_room_1)) (do (set-location :flooded_room_1) "You fall through the hole and into shallow water.")
+		(and (= location :mird) (= con :mird_hillb)) (do (set-location :mird_hillb) "You step out the massive doorway and immediately trip over a rock and tumble down a steep grassy slope.")
+		(and (= location :crossroads) (= con :bee_hall)) (do (set-location :bee_hall) "As soon as you step into the northern passageway, a huge stone slab smashes down behind you sealing the way back.")
+		(and (= location :crossroads) (= con :mineshaft_top)) (do (set-location :mineshaft_top) "As soon as you step into the south-leading passageway, a giant stone slab crashes down behind you sealing the way back.")
+		(and (= location :cave_update) (= con :d_entrance)) (do (set-location :d_entrance) "You step down the chute-like hole revealed by the trapdoor, expecting there to be a ladder. Therefore, when there isn't one, you fall down the slippery chute and slide to the bottom.")
+		(and (= location :road_2) (= con :cave_door) true) (do (set-location :cave_door) (if (contains? inv :lit_lantern) (do (invrm :lit_lantern) "As you start to walk, you trip and fall on your face. During the fall, your lantern slips out of your hand, goes out, and rolls off into the thick bushes to the side of the path. You then pick yourself up and keep going.")))
+		(and (= location :mird_hillb) (= con :mird)) "You attempt to climb the steep grassy slope, but you fall down and slide back to the bottom."
+
 		true false))
 
 			
