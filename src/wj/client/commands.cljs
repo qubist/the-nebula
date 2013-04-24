@@ -221,7 +221,7 @@
 
 	:dev {
 		:name "dev"
-		:helptext "Description: This is definitely NOT an all powerful developer command\nUsage: ERROR clojure.lang.RuntimeException: compiling:(NO_SOURCE_PATH:1)"
+		:helptext "Description: This is definitely NOT an all powerful developer command\nUsage: ERROR clojure.lang.RuntimeException: compiling:(NO_SOURCE_PATH:137)"
 		:fn (fn [p _]
 			(let [[command param] (split p #" ")]
 			(cond
