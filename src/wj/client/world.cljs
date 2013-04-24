@@ -299,13 +299,13 @@
 		:snow_cliff_cave_passage_2 {:des "You find yourself in a stone passageway that goes to the south and to the north.",
 							:con {:n :snow_cliff_cave_sun, :s :mird_entrance}
 							:rinv {}}
-		:mird_entrance {:des "You are in a tiny anteroom. sticks and small bits of jewelry and precious metals are strewn about the floor. A hallway goes north, and there is a doorway to the south. From that direction, you hear a faint breathing noise.",
+		:mird_entrance {:des "You are in a tiny anteroom. sticks and small bits of jewelry and precious metals are littered about the floor. A hallway goes north, and there is a doorway to the south. From that direction, you hear a faint breathing noise.",
 							:con {:s :mird, :n :snow_cliff_cave_passage_2}
 							:rinv {}}
 		:mird {:des "You are in a expansive cave with a floor covered with sticks and even a few bones. In the center of the room is a giant nest. In the nest is a huge hoard of riches, gold, and jewels, guarded by a huge monster with head and wings of a bird, but the body, tail, and legs of a hairy monkey. The monster watches you threateningly. There is a hallway to the north, and to the south there is a massive doorway through which you can see green grass and sunlight.",
 							:con {:s :mird_hillb, :n :mird_entrance}
 							:robj {:mird ""}}
-		:mird_hillb {:des "You are at the bottom of a super steep grassy slope to the north. To the west there is a path that leads through the forest that surrounds you.",
+		:mird_hillb {:des "You are at the bottom of a super steep grassy slope that lies to the north. To the west there is a path that leads through the forest that surrounds you.",
 							:con {:w :elevator_field, :n :mird}
 							:rinv {}}
 		:elevator_field {:des "You are in a grassy, shrub-filled field. To the north there is the rusted shell of an old elevator cage, a quarter buried in the ground. You see no sign of how it could have gotten there. You can hear a faint squawking noise through the thick forest to the North.  Paths lead to the east and south, away from the clearing.",
