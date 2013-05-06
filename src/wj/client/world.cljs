@@ -308,11 +308,32 @@
 		:mird_hillb {:des "You are at the bottom of a super steep grassy slope that lies to the north. To the west there is a path that leads through the forest that surrounds you.",
 							:con {:w :elevator_field, :n :mird}
 							:rinv {}}
-		:elevator_field {:des "You are in a grassy, shrub-filled field. To the north there is the rusted shell of an old elevator cage, a quarter buried in the ground. You see no sign of how it could have gotten there. You can hear a faint squawking noise through the thick forest to the North.  Paths lead to the east and south, away from the clearing.",
-							:con {:e :mird_hillb, :n :outside_elevator, :s :ravine_entrance}
+		:elevator_field {:des "You are in a grassy, shrub-filled field. To the north there is the rusted shell of an old elevator cage, a quarter buried in the ground. You see no sign of how it could have gotten there. You can hear a faint squawking noise through the thick forest to the North. Paths lead to the east and south, away from the clearing.",
+							:con {:e :mird_hillb, :n :outside_elevator, :s :ravine_path}
 							:rinv {}}
 		:outside_elevator {:des "You are inside the rusted shell of an old elevator cage that is one quarter buried in the ground. It is worn down and rusted with age, and on one wall you see a tiny keyhole, the words written beneath it so rusted that there are only a few letters visible: \"I  c se  f e  rgen y.\" The exit lies to the south.",
 							:con {:s :elevator_field}
+							:rinv {}}
+		:ravine_path {:des "You are on a path that leads away from a clearing that is to the north. The path leads down a steep slope and into a ravine. You can hear quiet trickling water from that direction.",
+							:con {:d :ravine_1, :n :elevator_field}
+							:rinv {}}
+		:ravine_1 {:des "You are in a red rock ravine that has a large stream running through the center of it. A path leads up and out of the ravine, and another path leads north, toward a small cave in the side of the ravine. To the west, there is a small footbridge that crosses the stream.",
+							:con {:u :ravine_path, :n :ravine_cave_en, :w :ravine_2}
+							:rinv {}}
+		:ravine_cave_en {:des "You are on at the mouth of a small cave in the side of the reddish rock of the ravine. The main path lies to the south, and the cave it to the east.",
+							:con {:s :ravine_1, :e :ravine_cave}
+							:rinv {}}
+		:ravine_cave {:des "You are in a cave carved out of the red rock of a ravine. There is nothing in the cave but a pictogram on the wall: a square divided into four equal sections. The section on the top left has an up-pointing arrow in it's center. The cave exit lies to the west",
+							:con {:w :ravine_cave_en,}
+							:rinv {}}
+		:ravine_2 {:des "You are by the side of a large stream that is flowing through a ravine made of red rock. To the east, a bridge bridges the stream, and a path leads up and out of the ravine.",
+							:con {:u :ravine_ex, :e :ravine_1}
+							:rinv {}}
+		:ravine_ex {:des "You find yourself on the edge of a ravine that has a large stream running through it. All around you is thick muddy marshlands, but a path leads to the north, down a slight incline. A path also goes back down into the ravine.",
+							:con {:n :swamp_path, :d :ravine_2}
+							:rinv {}}
+		:swamp_path {:des "You are on a path that goes east and south, through the dense, sticky swamp that surrounds you. To the south, the path goes up a slight incline, and to the east it goes down",
+							:con {:s :ravine_ex, :e :swamp_en}
 							:rinv {}}
 
 		}
