@@ -278,8 +278,8 @@
 		:snow_cliff {:des "You are in a small patch of rocky ground in a thick forest of snow-covered pine trees. To the north is the edge of a cliff, and you can see no easier way down than a set of small indentations, where many generations of footsteps have climbed up and down the sheer cliff face. To the south there is a path through the forest.",
 							:con {:d :snow_cliff_bottom, :s :snow_forest}
 							:rinv {}}
-		:snow_cliff_bottom {:des "You are at the bottom of a sheer cliff made of smooth, gray rock. There is no way up because the few footholds that were there have recently been broken by some bumbling idiot of an adventurer. To the south is an entrance to a pitch black cave that leads into the cliff.",
-							:con {:s :snow_cliff_passage, :e :snow_cliff_dead}
+		:snow_cliff_bottom {:des "You are at the bottom of a sheer cliff made of smooth, gray rock. There is no way up because the few footholds that were there have recently been broken by some bumbling idiot of an adventurer. To the south is an entrance to a pitch black cave that leads into the cliff. The forest looks a bit thinner to the east.",
+							:con {:s :snow_cliff_cave_passage, :e :snow_cliff_dead}
 							:rinv {}}
 		:snow_cliff_dead {:des "You are in a dense forest at the bottom of a sheer cliff. The forest is impenetrable and there is no way up the cliff. To the west lies a small clearing at the bottom of the cliff.",
 							:con {:w :snow_cliff_bottom}
