@@ -11,7 +11,7 @@
 	(cond
 		;can't
 		(nil? con) "You can't go that way."
-		(and (= location :yard) (= con :dog_path_en)) "You can't go that way."
+		(and (= location :yard) (= con :dog_path_en) (robj-contains? :yard :dog)) "You can't go that way."
 		(and (= location :crystal_room) (= con :overlook_ladder) (door-closed? :door_to_overlook_ladder)) "You can't go that way."
 
 		;dark
