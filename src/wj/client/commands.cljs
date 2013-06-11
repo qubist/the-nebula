@@ -85,7 +85,7 @@
 																   (pntln "The floor opens up from under you and you fall into a pit!")
 																   (set-location :zegg_pit))
 					  (and (= location :end_2) (= item :gem)) (do 
-																(pntln "Just as you reach for the Ojeran Gemerald, it dissapears and becomes a beam of light that shoots upward, through the ceiling. White panels on the walls open and metal robot-arms come out and begin dissasembling the room and then themselves. Once the room is gone, you fall through a pitch black abyss filled with bright stars. You stop falling and float stationary.")
+																(pntln "Just as you reach for the Ojeran Gemerald, it dissapears and becomes a beam of light that shoots upward, through the ceiling. White panels on the walls open and metal mechanical-arms come out and begin dissasembling the room and then themselves. Once the room is gone, you fall through a pitch black abyss filled with bright stars. You stop falling and float stationary.")
 																(set-location :credits_1))
 					  
 					  true (do-get-item item)
