@@ -158,15 +158,22 @@
 		:fn (fn [p _]
 			(if (not (re-find #"door|trapdoor|lock|elevator" p)) (pntln "You can't unlock that.")
 							 (cond
+								
+								;regular doors
 								(and (= location :cave_door) (contains? inv :copper_key)) (set-door-open :door_to_cave "The door unlocks with a click.")
 								(and (= location :bee_hall) (contains? inv :gold_key)) (set-door-open :door_to_bee_ladder "The door unlocks quietly.")
-								(and (= location :clock_room) (contains? inv (and :black_pebble :gray_pebble :white_pebble))) (do (set-door-open :door_to_silver_key_room "The pebbles fly out of your hand into the holes, and roll smoothly down into the depths of the door. The door swings open.") (invrm :black_pebble) (invrm :gray_pebble) (invrm :white_pebble))
 								(and (= location :d_room_1) (contains? inv :silver_key)) (set-door-open :door_to_crossroads "The door unlocks smoothly.")
 								(and (= location :cath_stransc) (contains? inv :iron_key)) (set-door-open :door_to_cath_crypt_web "The heavy trapdoor clicks unlocked.")
+
+								;door that do something when they open
+								(and (= location :clock_room) (contains? inv (and :black_pebble :gray_pebble :white_pebble))) (do (set-door-open :door_to_silver_key_room "The pebbles fly out of your hand into the holes, and roll smoothly down into the depths of the door. The door swings open.") (invrm :black_pebble) (invrm :gray_pebble) (invrm :white_pebble))
 								(and (= location :mineshaft_elevator) (contains? inv :crystal_key)) (do (pntln "As you turn the key in the lock, the cables supporting the elevator cage snap and you start to plummet down to the bottom of the elevator shaft. Just when you think that you are about to hit the bottom and be turned into a adventurer pancake breakfast for the nearest monster, there is a blinding flash of red light, and you feel yourself being teleported.") (set-location :outside_elevator))
+								(= location :end_main) (do (set-door-open :door-to-space "The door unlocks and swings open revealing a black abyss filled with bright, shining stars.") (change-room-des :end_main "You are in a hallway with smooth, bright white walls. It leads north into a white room, and south to a doorway through which is a black abyss filled with stars."))
+									
+								;failure notices
 								(or (= location :cave_door) (= location :mineshaft_elevator) (= location :d_room_1) (= location :cath_stransc)) (pntln "You do not have the correct key.")
-								(= location :clock_room) (pntln "You do not have the correct items.")
-								(not (or (= location :cave_door) (= location :mineshaft_elevator) (= location :clock_room) (= location :d_room_1) (= location :bee_hall) (= location :d_room_1) (= location :mineshaft_elevator) (= location :cath_stranc))) (pntln "Nothing here is locked.")
+								(= location :clock_room) (pntln "You do not have the correct items.")								
+								(not (or (= location :cave_door) (= location :mineshaft_elevator) (= location :clock_room) (= location :d_room_1) (= location :bee_hall) (= location :d_room_1) (= location :mineshaft_elevator) (= location :cath_stranc) (= location :end_main))) (pntln "Nothing here is locked.")
 							 )
 							))}
 							
