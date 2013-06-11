@@ -368,8 +368,17 @@
 		:end_2 {:des "You are in the north end of a room with bright white walls. There is a shiny black pedestal here. On it sits a large, glowing green gem–the Ojeran Gemerald.",
 							:con {:s :end_1}
 							:rinv {:gem {:des "a large green gem" :regex #"large green gem|green gem|large gem|gem"}}}
-		:credits_1 {:des "You are floating in the black abyss. Huge white letters are hanging in front of you. They say:\n\"Credits:\n\" FIXME",
+		:credits_1 {:des "You are floating in the black abyss. Huge white letters are hanging in front of you. They say:\n\nCredits\n\nCoder:\nWill Harris-Braun\n\nWritten by:\nWill Harris-Braun\n\nMentor:\nEric Harris-Braun\n\n(Move in any direction)",
 							:con {:n :credits_2, :s :credits_2, :e :credits_2, :w :credits_2, :u :credits_2, :d :credits_2,}
+							:rinv {}}
+		:credits_2 {:des "\nTesters:\nTimo Carlin-Burns\nJesse Harris-Braun\nMilo Robbins-Zust\nCasen Waldorf\nJack Gibson\nAsa Mervis\nLucas Braun\nEric Harris-Braun\nEllen Harris-Braun\nEugene Braun\nArthur Brock\nEric Bear\n\n(Move in any direction)",
+							:con {:n :credits_3, :s :credits_3, :e :credits_3, :w :credits_3, :u :credits_3, :d :credits_3,}
+							:rinv {}}
+		:credits_3 {:des "\nMusic:\nWill Harris-Braun\n\nEnthusiasts:\nTimo Carlin-Burns\nLucas Braun\nJulian Lindenmaier\nJack Gibson\n\nInspirations:\nZork\nColossal Cave Adventure\n\nTools:\nClojure\nGitHub\nOSX (Sadly)\nUbuntu (Yay!)\nText Mate\nPen and Pencil\nMy Brain\n\n(Move in any direction)",
+							:con {:n :credits_4, :s :credits_4, :e :credits_4, :w :credits_4, :u :credits_4, :d :credits_4,}
+							:rinv {}}
+		:credits_4 {:des "\nDecoy Russian Robot Spy:\nArthur Brock\n\nRussian Robot Spy:\nJesse Harris-Braun\n\nBased on the Book by:\nWill Harris-Braun\n\nUFOs:\n\n\nArt:\nWill Harris-Braun\n\nLate for Dinner:\nEric Harris-Braun",
+							:con {:n :credits_4, :s :credits_4, :e :credits_4, :w :credits_4, :u :credits_4, :d :credits_4,}
 							:rinv {}}
 
 		}
