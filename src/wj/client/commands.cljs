@@ -177,7 +177,7 @@
 			(cond (= location :sphinx) (if (riddle-unanswered? :sphinx) (if (re-find #"(night|day).+(night|day)" (lower-case input))
 					(do (pntln "The Sphinx says \"Correct, you may pass!\" Strangely, it then yawns and goes to sleep.")
 						(set-riddle-answered :sphinx)
-						(change-room-des :sphinx "You are in a dim hallway running from east to west. In front of you lies a sleeping Sphinx. It is snoring heavily. Behind the Sphinx–to the west–the hallway is hard too see because of a blinding light."))
+						(change-room-des :sphinx "You are in a dim hallway running from east to west. In front of you lies a sleeping Sphinx. It is snoring heavily. Behind the Sphinx–to the west–the hallway is hard too see because it is pitch black."))
 					(pntln "The Sphinx says \"That is not the answer. Try again.\""))
 					(pntln "The Sphinx stirs, and mumbles in its sleep."))
 				(= location :pword_room) (if (re-find #"sir|act" (lower-case input))

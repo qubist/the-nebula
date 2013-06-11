@@ -49,13 +49,13 @@
 		:dog_path_clearing {:des "You are in a small clearing in the thick bushes that are planted around the house. A dog is sleeping soundly in the center of the clearing. To the south you can vaguely see the house's boarded up windows through the bushes, but they are impossible to get to. To the west, the path leads out of the clearing.",
 							:con {:w :dog_path_w}
 							:rinv {:collar {:des "a small red dog collar" :regex #"small red dog collar|small dog collar|red dog collar|small red collar|dog collar|collar"}}}
-		:outside {:des "You are outside. There is a massive tree here.",
+		:outside {:des "You are outside. There is a massive tree here. There is a yard to the north, and a road to the south.",
 							:con {:n :yard, :u :tree, :s :road}
 							:rinv {}}
 		:tree {:des "You are at the top of a huge oak tree. You can see all around you: To the south there's a road that leads east and west, and to the north there is the house.",
 							:con {:d :outside}
 							:rinv {}}
-		:road {:des "You are on a medium sized, well traveled, dirt road. It leads to the east and west.",
+		:road {:des "You are on a medium sized, well traveled, dirt road. It leads to the east and west. To the north there is an open outside area.",
 							:con {:w :merchant_shop_entrance, :e :road_2, :n :outside}
 							:rinv {}}
 		:merchant_shop_entrance {:des "You are on the porch of a merchant's shop. There is a door to your west that goes into the shop. You see light through the crack under the door.",
@@ -94,35 +94,29 @@
 		:d_hall {:des "You are in a long dim hallway. It continues on to the west and far along it you can just make out the silhouette of a hulking shape against a bright light. The hallway also leads back to the east.",
 							:con {:w :sphinx, :e :d_entrance}
 							:rinv {}}
-		:sphinx {:des "You are in a dim hallway running from east to west. In front of you stands a Sphinx. It says \"There are two sisters: one gives birth to the other and she, in turn, gives birth to the first. Who are the two sisters? Answer the riddle or face your doom!\" Behind the Sphinx–to the west–is a blinding light.",
+		:sphinx {:des "You are in a dim hallway running from east to west. In front of you stands a Sphinx. It says \"There are two sisters: one gives birth to the other and she, in turn, gives birth to the first. Who are the two sisters? Answer the riddle or face your doom!\" Behind the Sphinx–to the west–it is pitch black.",
 							:con {:w :l_en, :e :d_hall}
 							:rinv {}}
 		:l_en {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
-							:con {:s :l_1, :n :l_ex_2, :e :sphinx}
-							:rinv {}}
-		:l_1 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
-							:con {:s :l_2, :n :l_en}
+							:con {:s :l_3, :n :l_2, :e :sphinx}
 							:rinv {}}
 		:l_2 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
-							:con {:n :l_1, :w :l_3}
+							:con {:s :l_en, :w :l_ex}
 							:rinv {}}
 		:l_3 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
-							:con {:n :l_4, :e :l_2}
+							:con {:n :l_en, :w :l_4}
 							:rinv {}}
 		:l_4 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
-							:con {:n :l_ex, :s :l_3}
+							:con {:n :l_5, :e :l_3}
+							:rinv {}}
+		:l_5 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
+							:con {:n :l_ex, :s :l_4}
 							:rinv {}}
 		:l_ex {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
-							:con {:s :l_4, :w :mud_room}
-							:rinv {}}
-		:l_ex_2 {:des "The pitch blackness makes impossible to see, and you must fumble your way around in darkness.",
-							:con {:s :l_en, :w :mud_room_2}
+							:con {:s :l_5, :e :l_2, :w :mud_room}
 							:rinv {}}
 		:mud_room {:des "You are in a large rectangular room. The floor is completely covered with thick, squishy mud that comes up to your ankles. A door leads to the north.",
 							:con {:e :l_ex, :n :zegg_room}
-							:rinv {:gray_pebble {:des "a round gray pebble" :regex #"round gray pebble|gray pebble|round pebble|pebble"}}}
-		:mud_room_2 {:des "You are in a large rectangular room. The floor is completely covered with thick, squishy mud that comes up to your ankles. A door leads to the north.",
-							:con {:e :l_ex_2, :n :zegg_room}
 							:rinv {:gray_pebble {:des "a round gray pebble" :regex #"round gray pebble|gray pebble|round pebble|pebble"}}}
 		:zegg_room {:des "You are in a small square room. In the center of the room is a round pedestal. On it sits a beautiful jewel encrusted egg. To the west there is a door",
 							:con {:s :mud_room, :w :pebble_hint}
@@ -136,7 +130,7 @@
 		:zegg_pit {:des "You are in a grimy pit. The floor is covered with old bones and refuse. There is no way up, but there is a door to the west.",
 							:con {:w :pit_room}
 							:rinv {}}
-		:study {:des "You are in a large study with walls, floor and ceiling made of wooden paneling. There is a desk and a chair, and a mural of a hearty adventurer holding a solid silver rock in a dark dungeon covers the east wall. Doors lead to the west and north.",
+		:study {:des "You are in a large study with it's walls and ceiling made of wooden paneling. There is a desk and a chair, and a mural of a hearty adventurer holding a solid silver rock in a dark dungeon covers the east wall. Doors lead to the west and north.",
 							:con {:n :pit_room, :w :clock_room}
 							:rinv {}}
 		:clock_room {:des "You are in a round, rough-walled room. You can hear a loud \"tic, tock, tic, tock...\" sound from all around you. To the north, there is a thick stone door with no handle or keyhole. Instead, it has three round holes that go into the door. To the west there is a doorway into another room.",
@@ -233,7 +227,7 @@
 		:sunf {:des "You find yourself in a field of sunflowers that are each at least double your height. They are all facing towards the east. The edge of the sunflowers is to the south, and to the west is a path that leads through the sunflowers.",
 							:con {:s :boulder_field, :w :sunf_clearing}
 							:rinv {}}
-		:sunf_clearing {:des "You are in a clearing in a field of sunflowers. To the east, a path leads.",
+		:sunf_clearing {:des "You are in a clearing in a field of sunflowers. A path leads to the east.",
 							:con {:e :sunf}
 							:rinv {:iron_key {:des "a large iron key" :regex #"iron key|key"}}}
 		:cath_courtyard {:des "You are in the very small courtyard of a very small cathedral. So small, in fact, that you would have to duck in order to pass through the ornate double doors that lie to the east. A path leads to the north.",
@@ -263,14 +257,14 @@
 		:cath_crypt_w {:des "You are in a small underground room with stone walls, and a stone floor. There is a strong smell of dust in the air. A hallway leads to the east.",
 							:con {:e :cath_crypt_main}
 							:rinv {}}
-		:cath_crypt_s {:des "You are in a small underground room that is slightly damp and smells like damp dirt. A hallway leads to the south.",
+		:cath_crypt_s {:des "You are in a small underground room that is slightly damp and smells like damp dirt. A hallway leads to the north.",
 							:con {:n :cath_crypt_main}
 							:rinv {}}
 		:cath_hall {:des "You are in a hall that runs east to west. To the east, you can see a slightly bright light.",
 							:con {:e :cath_stairs, :w :cath_crypt_main}
 							:rinv {}}
 		:cath_stairs {:des "You are at the bottom of a long flight of stairs that lead up. At the top you can see what appears to be sunlight, but it is a little brighter, and much whiter.",
-							:con {:w :cath_hall_1, :u :snow_forest}
+							:con {:w :cath_hall, :u :snow_forest}
 							:rinv {}}
 		:snow_forest {:des "You find yourself in a snow-covered forest. The evergreen trees shine in the harsh winter sun, and the snow glitters like a thousand tiny diamonds. Wow, that was sorta corny. A stone staircase leads down into the ground, and to the north, there is a clearing of rocky ground.",
 							:con {:n, :snow_cliff, :d :cath_stairs}
