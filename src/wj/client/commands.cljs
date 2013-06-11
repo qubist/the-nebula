@@ -42,8 +42,10 @@
 		(and (= location :crossroads) (= con :bee_hall)) (do (set-location :bee_hall) "As soon as you step into the northern passageway, a huge stone slab smashes down behind you sealing the way back.")
 		(and (= location :crossroads) (= con :mineshaft_top)) (do (set-location :mineshaft_top) "As soon as you step into the south-leading passageway, a giant stone slab crashes down behind you sealing the way back.")
 		(and (= location :cave_update) (= con :d_entrance)) (do (set-location :d_entrance) "You step down the chute-like hole revealed by the trapdoor, expecting there to be a ladder. Therefore, when there isn't one, you fall down the slippery chute and slide to the bottom.")
-		(and (= location :road_2) (= con :cave_door) true) (do (set-location :cave_door) (if (contains? inv :lit_lantern) (do (invrm :lit_lantern) "As you start to walk, you trip and fall on your face. During the fall, your lantern slips out of your hand, goes out, and rolls off into the thick bushes to the side of the path. You then pick yourself up and keep going.")))
+		(and (= location :road_2) (= con :cave_door) true) (do (set-location :cave_door) (if (contains? inv :lit_lantern) (do (invrm :lit_lantern) "As you start to walk, you trip and fall on your face. During the fall, your lantern slips out of your hand, goes out, and rolls off into the thick bushes to the side of the path. You then pick yourself up and keep going. Fortunately, the sun has just risen, so you can see.")))
 		(and (= location :mird_hillb) (= con :mird)) "You attempt to climb the steep grassy slope, but you fall down and slide back to the bottom."
+		(and (= location :swamp_house) (= con :swamp_e)) (do (set-location :swamp_house) "You walk east, into the eastern part of the swampy land, but the mud is super deep here and you start to sink in. You are sucked under, and when you push your way to the surface again, you are back under the house.")
+		(and (= location :swamp_house_ul) (= con :swamp_house_roof)) (do (set-location :end_main) "Remembering the glyph in the cave a while back, you break a hole in the ceiling and climb out onto the roof. You look to the sky as a storm gathers, black stormclouds sworling in a vortex that seems to be centered around you. Lightning lights up the clouds from inside and you hear the loud cracks of thunder. Suddenly, a huge fork of yellow lightning flashes down from the center of the storm and strikes you unconscious. You wake up...")
 
 		true false))
 
@@ -76,10 +78,16 @@
 				  item (search-rinv item-str room)]
 				(cond (nil? item) (pntln "You can't do that.")
 					  (= item :_unclear_) (pntln (str "Which " item-str "? Please be more specific."))
+					  
+					  ;pedestal traps
 					  (and (= location :zegg_room) (= item :zegg)) (do 
 																   (do-get-item item)
 																   (pntln "The floor opens up from under you and you fall into a pit!")
 																   (set-location :zegg_pit))
+					  (and (= location :end_2) (= item :gem)) (do 
+																(pntln "Just as you reach for the Ojeran Gemerald, it dissapears and becomes a beam of light that shoots upward, through the ceiling. White panels on the walls open and metal robot-arms come out and begin dissasembling the room and then themselves. Once the room is gone, you fall through a pitch black abyss filled with bright stars. You stop falling and float stationary.")
+																(set-location :credits_1))
+					  
 					  true (do-get-item item)
 						   )))
 		}

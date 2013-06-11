@@ -16,10 +16,10 @@
 (defn initialize-world []
 	(def not_done true)
 	(def riddle-answered {:pword_room false, :sphinx false})
-	(def door-open {:door_to_cave false, :door_to_silver_key_room false, :door_to_crossroads false, :door_to_cath_crypt_web false, :door_to_overlook_ladder false, :door_to_bee_ladder false})
+	(def door-open {:door_to_cave false, :door_to_silver_key_room false, :door_to_crossroads false, :door_to_cath_crypt_web false, :door_to_overlook_ladder false, :door_to_bee_ladder false, :door_to_space false})
 	(def location :starting_chamber)
+	
 	(def world
-
 ;rooms
 		{:starting_chamber {:des "You are in a small, bare room. There are doors heading in all four directions.", 
 							:con {:n :kitchen, :s :yard, :e :bedroom, :w :cellar_stairs}
@@ -334,6 +334,48 @@
 							:rinv {}}
 		:swamp_path {:des "You are on a path that goes east and south, through the dense, sticky swamp that surrounds you. To the south, the path goes up a slight incline, and to the east it goes down",
 							:con {:s :ravine_ex, :e :swamp_en}
+							:rinv {}}
+		:swamp_en {:des "You are in the entrance to a large open area of swampland. The swampy water comes up to your ankles, and tall swamp grass surrounds you. You smell the strong odor of mud rich in organic materials. To the north is the large open area of swampland, and a path lies to the west.",
+							:con {:n :swamp_s, :w :swamp_path}
+							:rinv {}}
+		:swamp_s {:des "You are in the southern part of a large area of swampy land. To the north, there is a house that is on stilts so it can stand in the wet environment of the swamp.",
+							:con {:n :swamp_house, :s :swamp_en}
+							:rinv {}}
+		:swamp_e {:des "asdf. This is a filleeeer, filler yeah, not enough content for a whole video. LOL.",
+							:con {}
+							:rinv {}}
+		:swamp_house {:des "You are in the cramped space under a small wooden house that is built up on stilts. Open swampland lies to the south and east, and a ladder leads up into the house.",
+							:con {:u :swamp_house_dr, :s :swamp_s, :e :swamp_e}
+							:rinv {}}
+		:swamp_house_dr {:des "You are in the entrance room of a square wooden house that is on stilts. There is a small bench in the corner. There are more rooms to the north and west, and a ladder leads down, out of the house.",
+							:con {:d :swamp_house, :w :swamp_house_dl, :n :swamp_house_ur}
+							:rinv {}}
+		:swamp_house_ur {:des "You are in the dining room of an abandoned wooden house on stilts. Here there is a small table and two half-rotten chairs. There are rooms to the south and west",
+							:con {:s :swamp_house_dr, :w :swamp_house_ul}
+							:rinv {}}
+		:swamp_house_dl {:des "You are in the kitchen of a small wooden house on stilts. There is almost nothing in this room except a counter. There are more rooms to the north and to the east.",
+							:con {:n :swamp_house_ul, :e :swamp_house_dr}
+							:rinv {}}
+		:swamp_house_ul {:des "You are in the bedroom of a small house on stilts. There is a tiny straw cot here. Other rooms are to the south and east.",
+							:con {:s :swamp_house_dl, :e :swamp_house_ur, :u :swamp_house_roof}
+							:rinv {}}
+		:swamp_house_roof {:des "Another filleeer, filler yeah, not enough content for a whole video. LOL LOL LOL.",
+							:con {}
+							:rinv {}}
+		:end_main {:des "You are in a hallway with smooth, bright white walls. It leads north into a white room, and south to a door.",
+							:con {:s :space, :n :end_1}
+							:rinv {}}
+		:space {:des "Filler",
+							:con {}
+							:rinv {}}
+		:end_1 {:des "You are in the south end of an empty room with smooth, bright white walls. To the north, on the other side of the room, is a shiny black pedestal. On it sits a large green gem.",
+							:con {:s :end_main, :n :end_2}
+							:rinv {}}
+		:end_2 {:des "You are in the north end of a room with bright white walls. There is a shiny black pedestal here. On it sits a large, glowing green gem–the Ojeran Gemerald.",
+							:con {:s :end_1}
+							:rinv {:gem {:des "a large green gem" :regex #"large green gem|green gem|large gem|gem"}}}
+		:credits_1 {:des "You are floating in the black abyss. Huge white letters are hanging in front of you. They say:\n\"Credits:\n\" FIXME",
+							:con {:n :credits_2, :s :credits_2, :e :credits_2, :w :credits_2, :u :credits_2, :d :credits_2,}
 							:rinv {}}
 
 		}
