@@ -166,7 +166,7 @@
 		:mineshaft_bottom {:des "You are at the bottom of a very tall mineshaft. A metal ladder leads up, and there is a room to the south",
 							:con {:u :mineshaft_mid, :s :mine_room_1}
 							:rinv {}}
-		:mineshaft_overlook {:des "You are on a long viewing area looking over a massive cavern filled with a complex of chutes, mine-cart tracks, and metal catwalks. A few mine-carts, piled with gold ore, are sitting motionless on their tracks. The viewing are continues to the east, and there is a tunnel to the south.",
+		:mineshaft_overlook {:des "You are on a long viewing area looking over a massive cavern filled with a complex of chutes, mine-cart tracks, and metal catwalks. A few mine-carts, piled with gold ore, are sitting motionless on their tracks. The viewing area continues to the east, and there is a tunnel to the south.",
 							:con {:s :mineshaft_mid, :e :mineshaft_overlook_2}
 							:rinv {}}
 		:mineshaft_overlook_2 {:des "You are at the east end of a long viewing area looking over a huge mining district in a cavern. To the west, is the rest of the viewing platform.",
@@ -314,7 +314,7 @@
 		:ravine_1 {:des "You are in a red rock ravine that has a large stream running through the center of it. A path leads up and out of the ravine, and another path leads north, toward a small cave in the side of the ravine. To the west, there is a small footbridge that crosses the stream.",
 							:con {:u :ravine_path, :n :ravine_cave_en, :w :ravine_2}
 							:rinv {}}
-		:ravine_cave_en {:des "You are on at the mouth of a small cave in the side of the reddish rock of the ravine. The main path lies to the south, and the cave it to the east.",
+		:ravine_cave_en {:des "You are at the mouth of a small cave in the side of the reddish rock of the ravine. The main path lies to the south, and the cave is to the east.",
 							:con {:s :ravine_1, :e :ravine_cave}
 							:rinv {}}
 		:ravine_cave {:des "You are in a cave carved out of the red rock of a ravine. There is nothing in the cave but a pictogram on the wall: a square divided into four equal sections. The section on the top left has an up-pointing arrow in it's center. The cave exit lies to the west",
@@ -359,8 +359,8 @@
 		:end_main {:des "You are in a hallway with smooth, bright white walls. It leads north into a white room, and south to a door.",
 							:con {:s :space, :n :end_1}
 							:rinv {}}
-		:space {:des "Filler",
-							:con {}
+		:space {:des "You float along in this huge room untill a sudden draft pulls you back to the doorway. You stand, unable to comprehent the sheer beauty and depth of the image that you are seeing. Your small brain's neurons are exploding, having reached their capacity for thought, and you are quickly melting, sinking into the floor. You are a puddle. You are very small. You hear a voice–your voice–say \"Wake up you moron! There's no time for silly fantasies\"! You snap to attention, dreading the rest of your journey in life, knowing that everything left will look gray and bland compared to the experience you have just had. \"For God's Sake man!\" Says the voice, \"Get the *bleep* up!\"",
+							:con {:n :end_main}
 							:rinv {}}
 		:end_1 {:des "You are in the south end of an empty room with smooth, bright white walls. To the north, on the other side of the room, is a shiny black pedestal. On it sits a large green gem.",
 							:con {:s :end_main, :n :end_2}
@@ -374,10 +374,10 @@
 		:credits_2 {:des "\nTesters:\nTimo Carlin-Burns\nJesse Harris-Braun\nMilo Robbins-Zust\nCasen Waldorf\nJack Gibson\nAsa Mervis\nLucas Braun\nEric Harris-Braun\nEllen Harris-Braun\nEugene Braun\nArthur Brock\nEric Bear\n\n(Move in any direction)",
 							:con {:n :credits_3, :s :credits_3, :e :credits_3, :w :credits_3, :u :credits_3, :d :credits_3,}
 							:rinv {}}
-		:credits_3 {:des "\nMusic:\nWill Harris-Braun\n\nEnthusiasts:\nTimo Carlin-Burns\nLucas Braun\nJulian Lindenmaier\nJack Gibson\n\nInspirations:\nZork\nColossal Cave Adventure\n\nTools:\nClojure\nGitHub\nOSX (Sadly)\nUbuntu (Yay!)\nText Mate\nPen and Pencil\nMy Brain\n\n(Move in any direction)",
+		:credits_3 {:des "\nMusic:\nWill Harris-Braun\n\nEnthusiasts:\nTimo Carlin-Burns\nLucas Braun\nJulian Lindenmaier\nJack Gibson\n\nInspirations:\nZork\nColossal Cave Adventure\n\nTools:\nClojure\nGitHub\nOSX\nUbuntu\nText Mate\nPen and Pencil\nMy Brain\n\n(Move in any direction)",
 							:con {:n :credits_4, :s :credits_4, :e :credits_4, :w :credits_4, :u :credits_4, :d :credits_4,}
 							:rinv {}}
-		:credits_4 {:des "\nDecoy Russian Robot Spy:\nArthur Brock\n\nRussian Robot Spy:\nJesse Harris-Braun\n\nBased on the Book by:\nWill Harris-Braun\n\nUFOs:\n\n\nArt:\nWill Harris-Braun\n\nLate for Dinner:\nEric Harris-Braun",
+		:credits_4 {:des "The End!",
 							:con {:n :credits_4, :s :credits_4, :e :credits_4, :w :credits_4, :u :credits_4, :d :credits_4,}
 							:rinv {}}
 
